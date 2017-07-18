@@ -21,13 +21,13 @@ const Header = ({ user, logout }) =>
             </NavLink>
           </div>
           <div className='header__navitem'>
-            <NavLink to='/shops'>
-              <Button>your shops</Button>
+            <NavLink to='/posts'>
+              <Button>your posts</Button>
             </NavLink>
           </div>
           <div className='header__navitem'>
-            <NavLink to='/shops/new'>
-              <Button>start a shop</Button>
+            <NavLink to='/posts/new'>
+              <Button>start a post</Button>
             </NavLink>
           </div>
           <div className='header__navitem'>

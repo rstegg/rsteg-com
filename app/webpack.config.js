@@ -62,7 +62,13 @@ if (process.env.npm_lifecycle_event === 'bundle') {
       publicPath: '/',
       contentBase: paths.dev,
       port: 3000,
-      hot: true
+      hot: true,
+      proxy: {
+        '/api/v1': {
+          target: 'https://localhost:3030',
+          secure: false
+        }
+      }
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
