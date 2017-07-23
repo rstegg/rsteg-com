@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Card = ({ children }) =>
-  <div className='card'>
-    {children}
-  </div>
+const brandIcons = [ 'twitter', 'github', 'linkedin' ]
+
+const generateIcon = icon =>
+  brandIcons.includes(icon) ? `fab fa-${icon}` : `fal fa-${icon}`
+
+const Card = ({ as, children, ...props }) =>
+  React.createElement(as || 'div', { className: 'card', ...props }, children)
 
 Card.Image = ({ src }) =>
   <div className='card-image'>
@@ -30,7 +33,7 @@ Card.Title.displayName = 'Card.Title'
 
 Card.Icon = ({ icon }) =>
   <div className='card-header-icon'>
-    <i className={`fal fa-${icon}`}></i>
+    <i className={generateIcon(icon)}></i>
   </div>
 
 Card.Icon.displayName = 'Card.Icon'

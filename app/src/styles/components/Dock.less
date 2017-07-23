@@ -32,8 +32,6 @@
   &:hover {
     & > span {
       display: flex;
-      justify-content: center;
-      align-items: center;
     }
   }
 
@@ -45,13 +43,30 @@
 
   &-text {
     position: absolute;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
-    bottom: 75%;
+    bottom: 100px;
     padding: 10px;
     text-align: center;
-    border-radius: 100%;
+    font-size: 12pt;
     border: 1px solid rgba(34, 36, 38, .05);
     box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
     transition: all 0.25s ease;
+  }
+
+  &:first-of-type {
+    position: absolute;
+    left: 0;
+    .dock__item-text {
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+      bottom: 87.5px;
+      padding: 10px;
+      border: 1px solid rgba(34, 36, 38, .05);
+      box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
+      transition: all 0.25s ease;
+    }
   }
 }

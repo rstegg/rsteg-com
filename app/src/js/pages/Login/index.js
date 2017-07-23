@@ -2,7 +2,7 @@ import React from 'react'
 
 const Login = () =>
   <div>
-    Login
+    Login coming soon!
   </div>
 
 export default Login
