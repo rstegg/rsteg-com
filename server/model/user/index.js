@@ -1,29 +1,7 @@
 const crypto = require('crypto')
 
-//TODO: Clean up model
-
 module.exports = (sequelize, DataTypes) =>
   sequelize.define('users', {
-    stripeBitcoins: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true,
-    },
-    stripeCards: {
-      type: DataTypes.ARRAY(DataTypes.JSONB),
-      allowNull: true,
-    },
-    stripeBanks: {
-      type: DataTypes.ARRAY(DataTypes.JSONB),
-      allowNull: true,
-    },
-    stripeCustomer: {
-      type: DataTypes.JSONB,
-      allowNull: true,
-    },
-    stripeAccount: {
-      type: DataTypes.JSONB,
-      allowNull: true,
-    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -69,11 +47,6 @@ module.exports = (sequelize, DataTypes) =>
       type: DataTypes.STRING,
       allowNull: true
     },
-    user_type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'individual'
-    },
     ip_address: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -102,10 +75,7 @@ module.exports = (sequelize, DataTypes) =>
     classMethods: {
       associate () {
         this.belongsTo(sequelize.models['threads'], { foreignKey: { allowNull: false }, onDelete: 'CASCADE' })
-        this.hasMany(sequelize.models['shops'], { foreignKey: { allowNull: false }, onDelete: 'CASCADE' })
-        this.hasMany(sequelize.models['products'], { foreignKey: { allowNull: false }, onDelete: 'CASCADE' })
         this.hasMany(sequelize.models['messages'], { foreignKey: { allowNull: false }, onDelete: 'CASCADE' })
-        this.hasMany(sequelize.models['offers'], { foreignKey: { allowNull: false }, onDelete: 'CASCADE' })
       }
     },
     instanceMethods: {

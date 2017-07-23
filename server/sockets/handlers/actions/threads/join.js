@@ -1,11 +1,11 @@
 const { models } = rootRequire('db')
 const { User, Offer, Message } = models
+const { path } = require('ramda')
 
-const offerAttributes = ['id', 'state', 'productName', 'price', 'productId', 'userId', 'sellerId']
-const userAttributes = ['id', 'username', 'image']
+const offerAttributes = [ 'id', 'state', 'productName', 'price', 'productId', 'userId', 'sellerId' ]
+const userAttributes = [ 'id', 'username', 'image' ]
 
-const joinChatThread = (io, socket, action) => {
-  const { threadId, user } = action.payload
+module.exports = (io, socket, action) =>
   Message.findAll({
     include: [
       {
@@ -17,7 +17,7 @@ const joinChatThread = (io, socket, action) => {
         attributes: userAttributes
       }
     ],
-    where: { threadId }
+    where: { threadId: path([ 'payload', 'threadId' ], action) }
   })
   .then(messages => {
     if (socket.thread) {
@@ -33,14 +33,4 @@ const joinChatThread = (io, socket, action) => {
       }
     })
   })
-}
-
-const leaveChatThread = (io, socket, action) => {
-  if (action.payload && action.payload.threadId) {
-    socket.leave(action.payload.threadId)
-  } else if (socket.room) {
-    socket.leave(socket.room)
-  }
-}
-
-module.exports = { joinChatThread, leaveChatThread }
+  .catch(err => console.error(err))

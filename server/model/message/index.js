@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) =>
       associate () {
         this.belongsTo(sequelize.models['users'], { foreignKey: { allowNull: true }, onDelete: 'CASCADE' })
         this.belongsTo(sequelize.models['threads'], { foreignKey: { allowNull: true }, onDelete: 'CASCADE' })
-        this.belongsTo(sequelize.models['offers'], { foreignKey: { allowNull: true }, onDelete: 'CASCADE' })
       }
     }
   })

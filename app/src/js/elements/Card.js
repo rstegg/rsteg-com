@@ -1,9 +1,5 @@
 import React from 'react'
-
-const brandIcons = [ 'twitter', 'github', 'linkedin' ]
-
-const generateIcon = icon =>
-  brandIcons.includes(icon) ? `fab fa-${icon}` : `fal fa-${icon}`
+import { generateIcon } from 'utils/helpers'
 
 const Card = ({ as, children, ...props }) =>
   React.createElement(as || 'div', { className: 'card', ...props }, children)
@@ -62,9 +58,9 @@ Card.Meta.displayName = 'Card.Meta'
 
 Card.Description = ({ date, children }) =>
   <div className='content'>
-    {children}
+    <strong>{children}</strong>
     <br />
-    {date && <small>{date}</small>}
+    {date && <small className='is-small'>{date}</small>}
   </div>
 
 Card.Description.displayName = 'Card.Description'

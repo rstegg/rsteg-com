@@ -13,8 +13,7 @@
     "prebuild": "rm -rf build && mkdir build",
     "build": "webpack",
     "staging": "rm -rf ../server/build && mv build ../server/build",
-    "build:staging": "npm-run-all --serial build staging",
-    "test": "node scripts/test.js --env=jsdom"
+    "build:staging": "npm-run-all --serial build staging"
   },
   "dependencies": {
     "bulma": "^0.4.3",

@@ -3,6 +3,24 @@
 @card-shadow: fade(@black, 10%);
 @hover-shadow: fade(@lblue, 10%);
 
+.card {
+  text-decoration: none;
+  background-color: @white;
+  box-shadow: 0 2px 3px @card-shadow, 0 0 0 1px @card-shadow;
+  color: @text;
+  max-width: 100%;
+  height: 350px;
+  position: relative;
+  .media:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 3px @card-shadow, 0 0 2px 4px @hover-shadow;
+  }
+}
+
 .card-header {
   align-items: stretch;
   box-shadow: 0 1px 2px @card-shadow;
@@ -26,15 +44,21 @@
   padding: 0.75rem;
 }
 
-
 .card-image {
   display: block;
   position: relative;
 }
 
-
 .card-content {
   padding: 1.5rem;
+  & .content {
+    color: #4a4a4a;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+  }
 }
 
 .card-footer {
@@ -53,23 +77,5 @@
   padding: 0.75rem;
   &:not(:last-child) {
     border-right: 1px solid @border;
-  }
-}
-
-.card {
-  text-decoration: none;
-  background-color: @white;
-  box-shadow: 0 2px 3px @card-shadow, 0 0 0 1px @card-shadow;
-  color: @text;
-  max-width: 100%;
-  height: 350px;
-  position: relative;
-  .media:not(:last-child) {
-    margin-bottom: 0.75rem;
-  }
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: 0 2px 3px @card-shadow, 0 0 2px 4px @hover-shadow;
   }
 }

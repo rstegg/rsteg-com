@@ -7,66 +7,8 @@
   align-items: center;
 }
 
-.main {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
-
 .card {
   width: 100%;
-}
-
-.ui.card {
-  width: 100%;
-}
-
-.ui.card>.content:first-child {
-  overflow: hidden;
-  flex: 0 0 auto;
-}
-
-.ui.card>.content {
-  overflow: auto;
-}
-
-.ui.card>.content.extra {
-  overflow: hidden;
-  flex: 0 0 auto;
-}
-
-.productimg {
-  width: 100%;
-  align-self: center;
-}
-
-.list--link {
-  text-decoration: none;
-  margin: 1vh 1vw;
-}
-
-@media (max-width:768px) {
-  .main {
-    position: relative;
-    width: 100vw;
-    height: calc(100vh - 63px);
-    top: 63px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-  }
-  .main-container {
-    position: relative;
-    width: 100vw;
-    height: calc(100vh + 25px);
-    top: 63px;
-    left: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-  }
 }
 
 @media (min-width:768px) {
@@ -75,43 +17,9 @@
     overflow: hidden;
   }
 
-  .main {
-    position: absolute;
-    width: 100%;
-    height: calc(100% - 63px);
-    top: 63px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-  }
-
-  .main>* {
-    max-height: 100%;
-    flex: 0 0 auto;
-  }
-
-  .main-container {
-    box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5 !important;
-    height: 100%;
-    width: 100%;
-  }
-
   .card {
     width: 350px;
     max-width: 100%;
     overflow: hidden;
-  }
-
-  .ui.card {
-    width: 350px;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .productimg {
-    width: 35%;
-    align-self: center;
   }
 }

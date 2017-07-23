@@ -1,13 +1,13 @@
 const jwt = require('jsonwebtoken')
+const { path } = require('ramda')
 
 const { models } = rootRequire('db')
 const { User, Offer, Message } = models
 
-const offerAttributes = ['id', 'state', 'productName', 'price', 'sellerId']
-const userAttributes = ['id', 'username', 'image']
+const offerAttributes = [ 'id', 'state', 'productName', 'price', 'sellerId' ]
+const userAttributes = [ 'id', 'username', 'image' ]
 
-const fetchThreadChatMessages = (io, socket, action) => {
-  const { threadId } = action.payload
+module.exports = (io, socket, action) =>
   Message.findAll({
     include: [
       {
@@ -19,7 +19,7 @@ const fetchThreadChatMessages = (io, socket, action) => {
         attributes: userAttributes
       }
     ],
-    where: { threadId }
+    where: { threadId: path([ 'payload', 'threadId' ], action) }
   })
   .then(messages =>
     socket.emit('action', {
@@ -29,6 +29,4 @@ const fetchThreadChatMessages = (io, socket, action) => {
       }
     })
   )
-}
-
-module.exports = { fetchThreadChatMessages }
+  .catch(err => console.error(err))
