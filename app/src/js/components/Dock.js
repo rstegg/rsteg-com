@@ -17,7 +17,7 @@ const Dock = () =>
       <span className='dock__item-text'>Blog</span>
       <i className={generate2xIcon('list')}></i>
     </NavLink>
-    <NavLink to='/about' className='dock__item'>
+    <NavLink to='/about/languages' className='dock__item'>
       <span className='dock__item-text'>About</span>
       <i className={generate2xIcon('portrait')}></i>
     </NavLink>

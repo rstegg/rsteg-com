@@ -9,7 +9,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Blog from './pages/Blog'
-import About from './pages/About'
+import AboutRouter from './pages/About/Router'
 
 import store, { history } from './store'
 
@@ -22,7 +22,7 @@ const RootRouter = () =>
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/blog' component={Blog} />
-          <Route exact path='/about' component={About} />
+          <Route path='/about' component={AboutRouter} />
         </Switch>
       </RootLayout>
     </Router>

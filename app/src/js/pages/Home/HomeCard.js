@@ -1,8 +1,8 @@
 import React from 'react'
 import Card from 'elements/Card'
 
-const HomeCard = ({ href, color, header, icon, title, date, description }) =>
-  <Card as='a' href={href} style={{ backgroundColor: color }}>
+const HomeCard = ({ href, color, header, icon, title, date, description, isTwitterFeed }) =>
+  <Card as={isTwitterFeed ? 'div' : 'a'} href={href} style={{ backgroundColor: color }}>
     <Card.Header>
       <Card.Title>{header}</Card.Title>
       <Card.Icon icon={icon} />

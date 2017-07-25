@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
+  background-color: #fff;
   padding: 1em;
   bottom: 0;
   left: 0;
@@ -14,6 +15,7 @@
 
 .dock__item {
   cursor: pointer;
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,14 +26,35 @@
   width: 75px;
   margin-left: 25px;
   margin-right: 25px;
+  transition: all 0.25s ease;
 
   & > span {
-    display: none;
+    opacity: 0;
+    transform: scale(0, 0);
+    position: absolute;
+    transition: all 0.25s ease;
+  }
+
+  & > svg {
+    opacity: 1;
+    transform: scale(1, 1);
+    position: absolute;
+    transition: all 0.25s ease;
   }
 
   &:hover {
     & > span {
       display: flex;
+      opacity: 1;
+      transform: scale(1, 1);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 12pt;
+    }
+    & > svg {
+      opacity: 0;
+      transform: scale(0, 0);
     }
   }
 
@@ -41,32 +64,8 @@
     }
   }
 
-  &-text {
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    bottom: 100px;
-    padding: 10px;
-    text-align: center;
-    font-size: 12pt;
-    border: 1px solid rgba(34, 36, 38, .05);
-    box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
-    transition: all 0.25s ease;
-  }
-
   &:first-of-type {
     position: absolute;
     left: 0;
-    .dock__item-text {
-      position: absolute;
-      justify-content: center;
-      align-items: center;
-      bottom: 87.5px;
-      padding: 10px;
-      border: 1px solid rgba(34, 36, 38, .05);
-      box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
-      transition: all 0.25s ease;
-    }
   }
 }

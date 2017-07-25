@@ -3,7 +3,7 @@ import HomeCard from './HomeCard'
 import TwitterFeed from './TwitterFeed'
 
 class Home extends Component {
-  componentWillMount() {
+  componentDidMount() {
     window.twttr && window.twttr.widgets.load()
   }
   render() {
@@ -38,7 +38,7 @@ class Home extends Component {
           color='#007bb6'
           icon='linkedin'
           title='linkedin.com/in/rstegd'
-          date='Last updated: lord knows'
+          date='Last updated: never'
           description='Connect with me on Linkedin!'
         />
         <HomeCard header='My Twitter'
@@ -46,6 +46,7 @@ class Home extends Component {
           color='#00aced'
           icon='twitter'
           description={<TwitterFeed />}
+          isTwitterFeed
         />
       </div>
     )

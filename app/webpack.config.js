@@ -35,7 +35,8 @@ const common = {
   context: paths.src,
   entry: './js',
   output: {
-    filename: 'app.js'
+    filename: 'app.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: [ '.js', '.less' ],
