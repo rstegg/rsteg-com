@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { NavLink } from 'react-router-dom'
 
-const Button = ({ positive, onClick, children }) =>
-  <button onClick={onClick} className={positive ? 'button positive' : 'button'}>{children}</button>
+import Button from 'elements/Button'
 
 const Header = ({ user, logout }) =>
   <header className='header'>
@@ -37,12 +36,12 @@ const Header = ({ user, logout }) =>
         :
         <div className='header__nav'>
           <div className='header__navmenu'>
-            <NavLink to='/login'>
-              <Button>Login</Button>
-            </NavLink>
-            <NavLink to='/signup'>
-              <Button positive>Sign up</Button>
-            </NavLink>
+            <Button as={NavLink} to='/login' color='info'>
+              Login
+            </Button>
+            <Button as={NavLink} to='/signup' color='primary'>
+              Sign up
+            </Button>
           </div>
         </div>
       }

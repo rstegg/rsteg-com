@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect, NavLink } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import CreatePostForm from './form'
 
 import Loader from 'elements/Loader'
-import Button from 'elements/Button'
 import Image from 'elements/Image'
 
 import { createPost, openCreatePostCropper, closeCreatePostCropper, uploadPostImage, onUploadPostImageFailure } from 'actions/blog'
@@ -41,7 +40,6 @@ const CreatePost = ({
         <Avatar post={post} openCropper={img => openCreatePostCropper(img[0])} onUploadPostImageFailure={onUploadPostImageFailure} />
       }
       <CreatePostForm onSubmit={values => createPost(({ ...values, keywords: keywordsArray(values.keywords), image: post.image }), user)} />
-      <Button color='danger' as={NavLink} to={'/blog'}>Cancel</Button>
     </div>
 
 const mapStateToProps = ({ user, blog }) =>

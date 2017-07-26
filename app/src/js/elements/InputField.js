@@ -14,10 +14,11 @@ const getClass = (touched, error, asyncValidating) => {
   return 'input'
 }
 
-const InputField = ({ input, meta: { asyncValidating, touched, error }, type, autoFocus, label, placeholder }) =>
+const InputField = ({ input, meta: { asyncValidating, touched, error }, type, autoFocus, label, placeholder, icon }) =>
   <div className='field'>
     <label className='label'>{label}</label>
-    <div className='control has-icons-left has-icons-right'>
+    <div className={`control has-icons-left ${asyncValidating && 'has-icons-right'}`}>
+      <span className='icon is-small is-left'><i className={`fal fa-${icon}`}></i></span>
       <input type={type || 'text'} {...input} className={getClass(touched, error, asyncValidating)} autoFocus={autoFocus || false} placeholder={placeholder || label} />
       {asyncValidating && <span className='icon is-small is-right'><Loader /></span>}
     </div>

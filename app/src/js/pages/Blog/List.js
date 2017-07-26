@@ -5,11 +5,11 @@ import { length } from 'ramda'
 
 import Loader from 'elements/Loader'
 
-import { fetchBlogPosts } from 'actions/blog'
+import { fetchPosts } from 'actions/blog'
 
 class Blog extends Component {
   componentWillMount() {
-    this.props.fetchBlogPosts()
+    this.props.fetchPosts()
   }
   render() {
     const { blog } = this.props
@@ -44,7 +44,7 @@ const mapStateToProps = ({ blog }) =>
 
 const mapDispatchToProps = dispatch =>
 ({
-  fetchBlogPosts: () => dispatch(fetchBlogPosts())
+  fetchPosts: () => dispatch(fetchPosts())
 })
 
 export default connect(

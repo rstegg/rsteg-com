@@ -11,7 +11,7 @@ const verifyTokenHandler = require('./handlers/verifyToken')
 const validateBody = apiRequire('middleware/validate-body')
 const validFields = apiRequire('middleware/valid-fields')
 
-const validSignupUser = validFields('user', ['name', 'email', 'username', 'password'])
+const validSignupUser = validFields('user', ['email', 'username', 'password'])
 
 module.exports =
   router
