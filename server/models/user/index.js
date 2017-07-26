@@ -53,10 +53,6 @@ const UserScheme = DataTypes => ({
       isIP: true,
     }
   },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
   dob: {
     type: DataTypes.STRING,
     allowNull: true

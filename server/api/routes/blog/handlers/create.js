@@ -5,34 +5,25 @@ const shortId = require('shortid')
 
 const { allPass, merge, path, pick, pipe, isNil } = require('ramda')
 
-const postAttributes = ['title', 'slug', 'keywords', 'text', 'image']
+const postAttributes = ['title', 'keywords', 'text', 'image']
 
 const getValidSlug = slug =>
-  new Promise(resolve =>
-    Post.findOne({
-      where: { slug }
-    })
-    .then(post =>
-      post ?
-        resolve(getValidSlug(`${slug}-${shortId.generate().slice(0,1)}`))
-        : resolve({slug})
-    )
+  Post.findOne({
+    where: { slug }
+  })
+  .then(post =>
+    post ?
+      Promise.reject('slug exists')
+      : slug
   )
 
 const validate = req => {
-  const slug =
-    req.body.post.title
-      .replace("'", '')
-      .replace(/[^a-z0-9]/gi, '-')
-      .toLowerCase()
-      .trim()
-
-  return getValidSlug(slug)
+  return getValidSlug(req.body.post.slug)
 }
 
 module.exports = (req, res) =>
   validate(req)
-    .then(({slug}) => {
+    .then(slug => {
       const newPost = merge({
         userId: req.user.id,
         slug

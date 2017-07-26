@@ -12,7 +12,7 @@ const AboutRouter = () =>
     <Switch>
       <Route exact path='/blog' component={List} />
       <Route exact path='/blog/new' component={New} />
-      <Route exact path='/blog/:id' component={Post} />
+      <Route exact path='/blog/:slug' component={Post} />
     </Switch>
   </BlogLayout>
 

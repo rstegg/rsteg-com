@@ -10,7 +10,7 @@ const getSingleBlogPost = require('./handlers/getSingle')
 const validateBody = apiRequire('middleware/validate-body')
 const validFields = apiRequire('middleware/valid-fields')
 
-const validPost = validFields('post', ['title', 'slug', 'keywords', 'text', 'image'])
+const validPost = validFields('post', ['title', 'slug', 'text'])
 
 module.exports =
   router

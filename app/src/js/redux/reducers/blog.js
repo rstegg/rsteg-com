@@ -16,9 +16,19 @@ export default function(state = initialState, action) {
     })
   case 'FETCH_POSTS_SUCCESS':
     return Object.assign({}, state, {
-      list: action.payload.list,
+      list: action.payload.posts,
       error: null,
       isLoading: false
+    })
+  case 'FETCH_SINGLE_POST':
+    return Object.assign({}, state, {
+      active: {
+        isLoading: true
+      }
+    })
+  case 'FETCH_SINGLE_POST_SUCCESS':
+    return Object.assign({}, state, {
+      active: action.payload.post
     })
   case 'FETCH_POSTS_FAILURE':
     return Object.assign({}, state, {
@@ -40,6 +50,13 @@ export default function(state = initialState, action) {
         ...state.new,
         isCropperOpen: false,
         imagePreview: null
+      }
+    })
+  case 'CREATE_POST_SUCCESS':
+    return Object.assign({}, state, {
+      new: {
+        ...state.new,
+        isCreated: true
       }
     })
   case 'LOGOUT':

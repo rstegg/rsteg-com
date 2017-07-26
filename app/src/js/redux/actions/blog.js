@@ -52,12 +52,11 @@ export const onFetchPostsSuccess = res =>
   }
 })
 
-export const fetchSinglePost = (id, user) =>
+export const fetchSinglePost = slug =>
 ({
   type: 'FETCH_SINGLE_POST',
   payload: {
-    postId: id,
-    token: user.token
+    postId: slug
   }
 })
 
@@ -65,15 +64,15 @@ export const onFetchSinglePostSuccess = res =>
 ({
   type: 'FETCH_SINGLE_POST_SUCCESS',
   payload: {
-    POST: res.body.POST
+    post: res.body.post
   }
 })
 
-export const createPost = (POST, user) =>
+export const createPost = (post, user) =>
 ({
   type: 'CREATE_POST',
   payload: {
-    POST,
+    post,
     user
   }
 })
@@ -82,7 +81,7 @@ export const onCreatePostSuccess = res =>
 ({
   type: 'CREATE_POST_SUCCESS',
   payload: {
-    POST: res.body.POST
+    post: res.body.post
   }
 })
 
@@ -107,7 +106,7 @@ export const onEditPostSuccess = res =>
 ({
   type: 'EDIT_POST_SUCCESS',
   payload: {
-    POST: res.body.POST
+    post: res.body.post
   }
 })
 
@@ -124,7 +123,7 @@ export const onDeletePostSuccess = res =>
 ({
   type: 'DELETE_POST_SUCCESS',
   payload: {
-    POST: res.body.POST
+    post: res.body.post
   }
 })
 

@@ -20,13 +20,8 @@ const Header = ({ user, logout }) =>
             </NavLink>
           </div>
           <div className='header__navitem'>
-            <NavLink to='/posts'>
-              <Button>your posts</Button>
-            </NavLink>
-          </div>
-          <div className='header__navitem'>
-            <NavLink to='/posts/new'>
-              <Button>start a post</Button>
+            <NavLink to={`/user/${user.username}`}>
+              <Button>your profile</Button>
             </NavLink>
           </div>
           <div className='header__navitem'>

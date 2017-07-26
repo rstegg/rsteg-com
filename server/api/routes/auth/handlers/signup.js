@@ -8,7 +8,7 @@ const shortId = require('shortid')
 
 // const { confirmationMail, sendConfirmation } = apiRequire('service/mail')
 
-const { allPass, not, merge, path, pick, pipe, reduceWhile } = require('ramda')
+const { not, merge, path, pick, pipe, reduceWhile } = require('ramda')
 
 const bytes = (n) => crypto.randomBytes(n).toString('hex')
 
@@ -46,7 +46,7 @@ const validate = req =>
 
 module.exports = (req, res) => {
     validate(req)
-      .then(({validatedUser}) => {
+      .then((validatedUser) => {
         const salt = (Math.floor(Math.random() * 1000000000)).toString(36)
         const hash = crypto.createHash('md5').update(validatedUser.password + salt).digest('hex')
         const user = merge({
@@ -61,7 +61,7 @@ module.exports = (req, res) => {
       })
       .then(createdUser => {
         const { permalink, verify_token } = createdUser
-        const permalink_url = `https://kuwau.com/api/v1/auth/signup/email_confirmation/${permalink}/${verify_token}`
+        const permalink_url = `https://rsteg.com/api/v1/auth/signup/email_confirmation/${permalink}/${verify_token}`
         // const mail = confirmationMail(createdUser, permalink_url)
         // sendConfirmation(mail, createdUser)
         const resUser = pick(['id', 'email', 'username'], createdUser) //TODO: remove sending of userID, change userId checks to username (frontend)

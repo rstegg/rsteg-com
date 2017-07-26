@@ -1,50 +1,44 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import { length } from 'ramda'
 
 import Loader from 'elements/Loader'
+import Card from 'elements/Card'
 
-import { fetchPosts } from 'actions/blog'
+import { fetchSinglePost } from 'actions/blog'
 
 class Blog extends Component {
   componentWillMount() {
-    this.props.fetchPosts()
+    const { match: { params } } = this.props
+    this.props.fetchSinglePost(params.slug)
   }
   render() {
-    const { blog } = this.props
-    const posts = blog.list
-    if (!length(posts)) {
-      return <div>
-        <Loader />
-        <NavLink to='/blog/new'>
-          New Post
-        </NavLink>
-      </div>
+    const { post } = this.props
+    if (!post || post.isLoading) {
+      return <Loader />
     }
     return (
-      <ul>
-        {posts.map(post =>
-          <li key={post.slug}>
-            {post.title}
-          </li>
-        )}
-        <NavLink to='/blog/new'>
-          New Post
-        </NavLink>
-      </ul>
+      <Card>
+        <Card.Header>
+          <Card.Title>{post.title}</Card.Title>
+        </Card.Header>
+        <Card.Content>
+          <Card.Description>
+            {post.text}
+          </Card.Description>
+        </Card.Content>
+      </Card>
     )
   }
 }
 
 const mapStateToProps = ({ blog }) =>
 ({
-  blog
+  post: blog.active
 })
 
 const mapDispatchToProps = dispatch =>
 ({
-  fetchPosts: () => dispatch(fetchPosts())
+  fetchSinglePost: slug => dispatch(fetchSinglePost(slug))
 })
 
 export default connect(
