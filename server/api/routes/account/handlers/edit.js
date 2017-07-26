@@ -5,7 +5,7 @@ const crypto = require('crypto')
 const mailcomposer = require('mailcomposer')
 const shortId = require('shortid')
 
-const { confirmationMail, sendConfirmation } = apiRequire('service/mail')
+// const { confirmationMail, sendConfirmation } = apiRequire('service/mail')
 
 const { allPass, path, pick, pipe, merge, isNil } = require('ramda')
 
@@ -71,10 +71,10 @@ module.exports = (req, res) =>
     .then(user => {
       const updatedUser = user[1]
       if (updatedUser.email !== req.user.email) {
-        const { permalink, verify_token } = updatedUser
-        const permalink_url = `https://kuwau.com/api/v1/auth/signup/email_confirmation/${permalink}/${verify_token}`
-        const mail = confirmationMail(updatedUser, permalink_url)
-        sendConfirmation(mail, updatedUser)
+        // const { permalink, verify_token } = updatedUser
+        // const permalink_url = `https://kuwau.com/api/v1/auth/signup/email_confirmation/${permalink}/${verify_token}`
+        // const mail = confirmationMail(updatedUser, permalink_url)
+        // sendConfirmation(mail, updatedUser)
       }
       const account = pick(accountAttributes, updatedUser)
       res.status(200).json({account})

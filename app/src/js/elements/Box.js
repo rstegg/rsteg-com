@@ -1,5 +1,4 @@
 import React from 'react'
-import { generateIcon } from 'utils/helpers'
 
 const Box = ({ as, children, ...props }) =>
   React.createElement(as || 'div', { className: 'box', ...props }, children)
@@ -51,5 +50,7 @@ Box.Nav = () =>
       </a>
     </div>
   </nav>
+
+Box.Nav.displayName = 'Box.Nav'
 
 export default Box

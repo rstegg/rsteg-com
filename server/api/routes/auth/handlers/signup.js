@@ -6,7 +6,7 @@ const crypto = require('crypto')
 const mailcomposer = require('mailcomposer')
 const shortId = require('shortid')
 
-const { confirmationMail, sendConfirmation } = apiRequire('service/mail')
+// const { confirmationMail, sendConfirmation } = apiRequire('service/mail')
 
 const { allPass, not, merge, path, pick, pipe, reduceWhile } = require('ramda')
 
@@ -70,8 +70,8 @@ module.exports = (req, res) => {
       .then(createdUser => {
         const { permalink, verify_token } = createdUser
         const permalink_url = `https://kuwau.com/api/v1/auth/signup/email_confirmation/${permalink}/${verify_token}`
-        const mail = confirmationMail(createdUser, permalink_url)
-        sendConfirmation(mail, createdUser)
+        // const mail = confirmationMail(createdUser, permalink_url)
+        // sendConfirmation(mail, createdUser)
         const resUser = pick(['id', 'email', 'name', 'username'], createdUser) //TODO: remove sending of userID, change userId checks to username (frontend)
         const token = jwt.sign({ id: createdUser.id }, process.env.JWT_SECRET)
         res.status(200).json({user: resUser, token})

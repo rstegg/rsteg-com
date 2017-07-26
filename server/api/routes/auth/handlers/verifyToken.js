@@ -1,7 +1,7 @@
 const { models } = requireDb
 const { User } = models
 
-const { mailgun } = apiRequire('service/mail')
+// const { mailgun } = apiRequire('service/mail')
 
 const {pathEq} = require('ramda')
 
@@ -13,18 +13,19 @@ module.exports = (req, res) =>
         : User.update({ verified: true }, { where: { permalink: req.params.permalink }, returning: true, plain: true })
     )
     .then(updatedUser =>
-      mailgun
-        .lists('news@mg.kuwau.com')
-        .members()
-        .create({
-          subscribed: true,
-          name: user.name,
-          address: user.email
-        }, (err, data) => {
-          if (err) {
-            console.error(err);
-          }
-          res.redirect('/')
-        })
+      res.redirect('/')
+      // mailgun
+      //   .lists('news@mg.kuwau.com')
+      //   .members()
+      //   .create({
+      //     subscribed: true,
+      //     name: user.name,
+      //     address: user.email
+      //   }, (err, data) => {
+      //     if (err) {
+      //       console.error(err);
+      //     }
+      //     res.redirect('/')
+      //   })
     )
     .catch(err => res.redirect('/')) //TODO: if this fails, we want to know

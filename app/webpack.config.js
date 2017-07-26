@@ -66,7 +66,11 @@ if (process.env.npm_lifecycle_event === 'bundle') {
       hot: true,
       proxy: {
         '/api/v1': {
-          target: 'https://localhost:3030',
+          target: 'http://localhost:3030',
+          secure: false
+        },
+        '/WSS': {
+          target: 'http://localhost:3030',
           secure: false
         }
       }

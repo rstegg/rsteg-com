@@ -11,11 +11,24 @@ const getUser = prop('user')
 const getId = prop('id')
 const getText = prop('text')
 const getThreadId = prop('threadId')
+const getAvatar = prop('avatar')
+const getUsername = prop('username')
 
-const getPayloadUserId = pipe(
+const getPayloadUser = pipe(
   getPayload,
-  getUser,
+  getUser
+)
+const getPayloadUserId = pipe(
+  getPayloadUser,
   getId
+)
+const getImage = pipe(
+  getPayloadUser,
+  getAvatar
+)
+const getPayloadUsername = pipe(
+  getPayloadUser,
+  getUsername
 )
 const getPayloadThreadId = pipe(
   getPayload,
@@ -24,15 +37,6 @@ const getPayloadThreadId = pipe(
 const getPayloadText = pipe(
   getPayload,
   getText
-)
-
-const getImage = pipe(
-  getPayloadUser,
-  prop('avatar')
-)
-const getUsername = pipe(
-  getPayloadUser,
-  prop('username')
 )
 
 const constructMessage = action => ({

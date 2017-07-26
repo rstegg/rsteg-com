@@ -3,7 +3,7 @@ import { isDevelopment, isProduction, reduxDevCompose, hasReactDevTools, disable
 
 /*WebSockets Middleware*/
 import io from 'socket.io-client'
-const socket = io()
+const socket = io({ path: '/WSS' })
 
 import createSocketIoMiddleware from 'utils/redux-middleware/reduxSocketIo'
 const socketIoMiddleware = createSocketIoMiddleware(socket, 'WS/')

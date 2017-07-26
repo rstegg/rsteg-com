@@ -10,7 +10,7 @@ const http = require('http').Server(app)
 const passport = require('passport')
 const db = require('./db')
 const startSockets = require('./sockets')
-const io = require('socket.io')(http)
+const io = require('socket.io')(http, { path: '/WSS' })
 
 const API_HOST = process.env.API_HOST || '/api/v1'
 

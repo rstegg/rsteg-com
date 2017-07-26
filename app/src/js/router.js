@@ -8,7 +8,7 @@ import RootLayout from 'layouts/RootLayout'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import Blog from './pages/Blog'
+import BlogRouter from './pages/Blog/Router'
 import AboutRouter from './pages/About/Router'
 
 import store, { history } from './store'
@@ -21,7 +21,7 @@ const RootRouter = () =>
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
-          <Route exact path='/blog' component={Blog} />
+          <Route path='/blog' component={BlogRouter} />
           <Route path='/about' component={AboutRouter} />
         </Switch>
       </RootLayout>
