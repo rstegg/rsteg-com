@@ -24,7 +24,7 @@
   margin: 1em;
   &:hover {
     box-shadow: 0 5px 15px @hover-shadow, 0 0 0 1px @card-shadow;
-    z-index: 1;
+    z-index: 101;
     transform: scale(1.25, 1.25);
   }
 }
@@ -88,7 +88,7 @@
   }
 }
 
-@media screen and (min-width: 769px), print {
+@media screen and (min-width: 1025px), print {
   .card {
     width: 300px;
     margin: 25px;
