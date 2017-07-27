@@ -55,7 +55,7 @@ const common = {
   }
 }
 
-if (process.env.npm_lifecycle_event === 'bundle') {
+if (process.env.npm_lifecycle_event === 'bundle:dev') {
   module.exports = merge(common, {
     devtool: 'cheap-module-source-map',
     devServer: {
@@ -93,10 +93,10 @@ if (process.env.npm_lifecycle_event === 'bundle') {
   })
 }
 
-if (process.env.npm_lifecycle_event === 'build') {
+if (process.env.npm_lifecycle_event === 'bundle:build') {
   module.exports = merge(common, {
     plugins: [
-      new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
+      new ExtractTextPlugin({ filename: 'main.css', allChunks: true }),
       new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
       new webpack.LoaderOptionsPlugin({ minimize: true }),
       new webpack.DefinePlugin({

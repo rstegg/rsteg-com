@@ -6,12 +6,14 @@
   "scripts": {
     "assets:dev": "cp -R public/* dev/",
     "assets:build": "cp -R public/* build/",
-    "html": "pug src/html -o dev -w",
+    "html:dev": "pug src/html -o dev -w",
+    "html:build": "pug src/html -o build",
+    "bundle:dev": "webpack-dev-server",
+    "bundle:build": "webpack",
     "prestart": "rm -rf dev && mkdir dev",
-    "start": "npm-run-all --parallel html assets:dev bundle",
-    "bundle": "webpack-dev-server",
+    "start": "npm-run-all --parallel html:dev assets:dev bundle:dev",
     "prebuild": "rm -rf build && mkdir build",
-    "build": "webpack",
+    "build": "npm-run-all --parallel html:build assets:build bundle:build",
     "staging": "rm -rf ../server/build && mv build ../server/build",
     "build:staging": "npm-run-all --serial build staging"
   },
