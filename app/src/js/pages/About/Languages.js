@@ -4,7 +4,7 @@ import Section from 'elements/Section'
 const Languages = () =>
   <div className='container'>
     <Section>
-      Languages I have strong proficiency or expertise in.
+      My Expertise
     </Section>
     <div className='content'>
       <table className='table'>

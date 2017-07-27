@@ -3,40 +3,17 @@ export const refreshPosts = () =>
   type: 'REFRESH_POSTS'
 })
 
-export const openCreatePostCropper = image =>
+export const openPostImageCropper = image =>
 ({
-  type: 'OPEN_CREATE_POST_CROPPER',
+  type: 'OPEN_POST_IMAGE_CROPPER',
   payload: {
     image
   }
 })
 
-export const closeCreatePostCropper = () =>
+export const closePostImageCropper = () =>
 ({
-  type: 'CLOSE_CREATE_POST_CROPPER'
-})
-
-export const openEditPostCropper = image =>
-({
-  type: 'OPEN_EDIT_POST_CROPPER',
-  payload: {
-    image
-  }
-})
-
-export const closeEditPostCropper = () =>
-({
-  type: 'CLOSE_EDIT_POST_CROPPER'
-})
-
-export const switchToPostAdmin = () =>
-({
-  type: 'SWITCH_TO_POST_ADMIN'
-})
-
-export const switchToPostUser = () =>
-({
-  type: 'SWITCH_TO_POST_USER'
+  type: 'CLOSE_POST_IMAGE_CROPPER'
 })
 
 export const fetchPosts = () =>
@@ -85,19 +62,11 @@ export const onCreatePostSuccess = res =>
   }
 })
 
-export const editPostField = field =>
-({
-  type: 'EDIT_POST_FIELD',
-  payload: {
-    field
-  }
-})
-
-export const editPost = (POST, user) =>
+export const editPost = (post, user) =>
 ({
   type: 'EDIT_POST',
   payload: {
-    POST,
+    post,
     user
   }
 })
@@ -144,30 +113,10 @@ export const onUploadPostImageSuccess = res =>
   }
 })
 
-export const uploadEditPostImage = (image, POST, user) =>
+export const onUploadPostImageFailure = error =>
 ({
-  type: 'UPLOAD_EDIT_POST_IMAGE',
+  type: 'UPLOAD_POST_IMAGE_FAILURE',
   payload: {
-    image,
-    token: user.token,
-    postId: POST.id
+    error
   }
-})
-
-export const onUploadEditPostImageSuccess = res =>
-({
-  type: 'UPLOAD_EDIT_POST_IMAGE_SUCCESS',
-  payload: {
-    image: res.body.image
-  }
-})
-
-export const onUploadPostImageFailure = () =>
-({
-  type: 'UPLOAD_POST_IMAGE_FAILURE'
-})
-
-export const onUploadEditPostImageFailure = () =>
-({
-  type: 'UPLOAD_EDIT_POST_IMAGE_FAILURE'
 })

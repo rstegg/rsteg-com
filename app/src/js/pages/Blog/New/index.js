@@ -7,7 +7,7 @@ import CreatePostForm from './form'
 import Loader from 'elements/Loader'
 import Image from 'elements/Image'
 
-import { createPost, openCreatePostCropper, closeCreatePostCropper, uploadPostImage, onUploadPostImageFailure } from 'actions/blog'
+import { createPost, openPostImageCropper, closePostImageCropper, uploadPostImage, onUploadPostImageFailure } from 'actions/blog'
 
 import Dropzone from 'components/Dropzone'
 import ImageCropper from 'components/ImageCropper'
@@ -25,8 +25,8 @@ const CreatePost = ({
   user,
   post,
   createPost,
-  openCreatePostCropper,
-  closeCreatePostCropper,
+  openPostImageCropper,
+  closePostImageCropper,
   uploadPostImage,
   onUploadPostImageFailure
 }) =>
@@ -35,9 +35,9 @@ const CreatePost = ({
   :
     <div className='blog-form'>
       {post.isCropperOpen ?
-        <ImageCropper isOpen={post.isCropperOpen} image={post.imagePreview} uploadImage={img => uploadPostImage(img, user)} closeCropper={closeCreatePostCropper} />
+        <ImageCropper isOpen={post.isCropperOpen} image={post.imagePreview} uploadImage={img => uploadPostImage(img, user)} closeCropper={closePostImageCropper} />
         :
-        <Avatar post={post} openCropper={img => openCreatePostCropper(img[0])} onUploadPostImageFailure={onUploadPostImageFailure} />
+        <Avatar post={post} openCropper={img => openPostImageCropper(img[0])} onUploadPostImageFailure={onUploadPostImageFailure} />
       }
       <CreatePostForm onSubmit={values => createPost(({ ...values, keywords: keywordsArray(values.keywords), image: post.image }), user)} />
     </div>
@@ -53,8 +53,8 @@ const mapDispatchToProps = dispatch =>
   createPost: (post, user) => dispatch(createPost(post, user)),
   uploadPostImage: (img, user) => dispatch(uploadPostImage(img, user)),
   onUploadPostImageFailure: () => dispatch(onUploadPostImageFailure()),
-  openCreatePostCropper: img => dispatch(openCreatePostCropper(img)),
-  closeCreatePostCropper: () => dispatch(closeCreatePostCropper()),
+  openPostImageCropper: img => dispatch(openPostImageCropper(img)),
+  closePostImageCropper: () => dispatch(closePostImageCropper()),
 })
 
 export default connect(

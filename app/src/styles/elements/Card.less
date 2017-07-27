@@ -21,6 +21,7 @@
   width: 80%;
   height: 350px;
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  margin: 1em;
   &:hover {
     box-shadow: 0 5px 15px @hover-shadow, 0 0 0 1px @card-shadow;
     z-index: 1;
@@ -87,12 +88,7 @@
   }
 }
 
-@media (min-width:768px) {
-  .root {
-    position: fixed;
-    overflow: hidden;
-  }
-
+@media screen and (min-width: 769px), print {
   .card {
     width: 300px;
     margin: 25px;

@@ -36,7 +36,7 @@ export default function(state = initialState, action) {
       error: 'Something went wrong. Please contact me if error persists!',
       isLoading: false
     })
-  case 'OPEN_CREATE_POST_CROPPER':
+  case 'OPEN_POST_IMAGE_CROPPER':
     return Object.assign({}, state, {
       new: {
         ...state.new,
@@ -44,7 +44,7 @@ export default function(state = initialState, action) {
         imagePreview: action.payload.image
       }
     })
-  case 'CLOSE_CREATE_POST_CROPPER':
+  case 'CLOSE_POST_IMAGE_CROPPER':
     return Object.assign({}, state, {
       new: {
         ...state.new,

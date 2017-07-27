@@ -36,7 +36,7 @@ class Blog extends Component {
     const { blog } = this.props
     const posts = blog.list
     if (!length(posts)) {
-      return <Loader />
+      return <div className='loading-container'><Loader /></div>
     }
     return (
       <ul>

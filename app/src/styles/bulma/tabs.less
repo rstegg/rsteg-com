@@ -122,3 +122,19 @@
 .tabs.is-large {
   font-size: 1.5rem;
 }
+@media screen and (max-width: 768px) {
+  .tabs a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    padding-left: 0;
+    padding: 0.5em 0.75em;
+    & > .tab-text {
+      display: none;
+    }
+    & > .tab-icon {
+      margin-left: auto;
+    }
+  }
+}

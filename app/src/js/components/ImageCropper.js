@@ -23,7 +23,7 @@ class ImageCropper extends Component {
             image={image.preview}
             width={300}
             height={300}
-            border={50}
+            border={25}
             color={[ 255, 255, 255, 0.6 ]}
             scale={1}
           />

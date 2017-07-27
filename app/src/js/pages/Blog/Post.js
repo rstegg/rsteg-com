@@ -14,7 +14,7 @@ class Blog extends Component {
   render() {
     const { post } = this.props
     if (!post || post.isLoading) {
-      return <Loader />
+      return <div className='loading-container'><Loader /></div>
     }
     return (
       <Card>
