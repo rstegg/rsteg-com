@@ -72,7 +72,7 @@ const Languages = () =>
     </div>
     <article className='message is-info'>
       <div className='message-body'>
-        Rated from top to bottom by personal opinion. JavaScript is a category because it is my language of choice.
+        Rated from top to bottom by personal opinion. JavaScript is my language of choice.
       </div>
     </article>
   </div>
