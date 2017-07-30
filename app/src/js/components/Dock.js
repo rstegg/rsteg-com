@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 
 import { generate2xIcon } from 'utils/helpers'
 
-const Dock = () =>
-  <div className='dock'>
+const Dock = ({ isScrolling }) =>
+  <div className={`dock ${isScrolling ? 'dock--hide' : ''}`}>
     <a href='mailto:stegmannrd@gmail.com?subject=Hello' className='dock__item'>
       <span className='dock__item-text'>Mail</span>
       <i className={generate2xIcon('paper-plane')}></i>
