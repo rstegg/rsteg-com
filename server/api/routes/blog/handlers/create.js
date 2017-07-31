@@ -5,7 +5,7 @@ const shortId = require('shortid')
 
 const { allPass, merge, path, pick, pipe, isNil } = require('ramda')
 
-const postAttributes = ['title', 'slug', 'keywords', 'text', 'image']
+const postAttributes = ['title', 'slug', 'keywords', 'preview', 'text', 'image']
 
 const getUser = p => path([ 'user', p ])
 const getUserId = getUser('id')

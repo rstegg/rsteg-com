@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const PostRow = ({ to, title, image, date, text }) =>
+const PostRow = ({ to, title, image, date, preview }) =>
   <li className='blog-row'>
     <NavLink to={to}>
       <div className='box'>
@@ -16,7 +16,7 @@ const PostRow = ({ to, title, image, date, text }) =>
               <p>
                 <strong>{title}</strong> <small>{date}</small>
                 <br />
-                {text}
+                {preview}
               </p>
             </div>
           </div>

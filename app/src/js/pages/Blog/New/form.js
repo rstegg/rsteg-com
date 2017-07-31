@@ -13,6 +13,7 @@ const CreatePostForm = ({ handleSubmit }) =>
   <form onSubmit={handleSubmit}>
     <Field component={InputField} name='title' label='Name' placeholder='Post name' icon='heading' />
     <Field component={InputField} name='slug' label='Slug' placeholder='Post slug' icon='link'  />
+    <Field component={InputField} name='preview' label='Preview' placeholder='Preview' icon='pen-alt' />
     <Field component={InputField} name='keywords' label='Search Keywords' placeholder='Keywords' icon='search' />
     <Field component={MdField} name='text' label='Body' placeholder='Blog post...' />
     <div className='field is-grouped'>

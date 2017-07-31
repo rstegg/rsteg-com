@@ -26,7 +26,7 @@ class Blog extends Component {
             title={post.title}
             image={post.image}
             date={moment(post.createdAt).fromNow()}
-            text={post.text}
+            preview={post.preview}
             key={post.slug}
           />
         )}

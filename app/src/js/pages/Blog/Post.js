@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 
 import Loader from 'elements/Loader'
-import Card from 'elements/Card'
 import Section from 'elements/Section'
 
 import { fetchSinglePost } from 'actions/blog'

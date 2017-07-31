@@ -16,8 +16,12 @@ const PostScheme = DataTypes => ({
     type: DataTypes.ARRAY(DataTypes.STRING),
     allowNull: true,
   },
-  text: {
+  preview: {
     type: DataTypes.STRING,
+    allowNull: true,
+  },
+  text: {
+    type: DataTypes.TEXT,
     allowNull: true,
   }
 })
