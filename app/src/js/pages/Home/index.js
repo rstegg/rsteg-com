@@ -23,15 +23,13 @@ class Home extends Component {
           color={colors.yellow}
           icon='shopping-cart'
           title='kuwau.com'
-          date='Last updated: 02:12 AM - 11 Jul 2017'
-          description='E-commerce for designers, with real-time chat and more!'
+          description='E-commerce with designers in mind'
         />
         <HomeCard header='Luvpay - Personal Project'
           href='https://www.luvpay.io'
           color={colors.lightOrange}
           icon='heart'
           title='luvpay.io'
-          date='Last updated: 04:18 PM - 18 Jun 2017'
           description='Create forms and collect money'
         />
         <HomeCard header='My Github'
@@ -39,7 +37,6 @@ class Home extends Component {
           color={colors.pink}
           icon='github'
           title='github.com/rstegg'
-          date='Last updated: 11:52 AM - 23 Jul 2017'
           description='Check out some code I wrote!'
         />
         <HomeCard header='My LinkedIn'
@@ -47,7 +44,6 @@ class Home extends Component {
           color={colors.teal}
           icon='linkedin'
           title='linkedin.com/in/rstegd'
-          date='Last updated: never'
           description='Connect with me on Linkedin!'
         />
         <HomeCard header='My Twitter'

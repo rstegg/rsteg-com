@@ -64,6 +64,8 @@ if (process.env.npm_lifecycle_event === 'bundle:dev') {
       contentBase: paths.dev,
       port: 3000,
       hot: true,
+      disableHostCheck: true,
+      host: '0.0.0.0',
       proxy: {
         '/api/v1': {
           target: 'http://localhost:3030',
