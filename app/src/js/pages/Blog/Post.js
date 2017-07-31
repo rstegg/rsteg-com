@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import ReactMarkdown from 'react-markdown'
 
 import Loader from 'elements/Loader'
 import Card from 'elements/Card'
+import Section from 'elements/Section'
 
 import { fetchSinglePost } from 'actions/blog'
 
@@ -13,20 +15,18 @@ class Blog extends Component {
   }
   render() {
     const { post } = this.props
-    if (!post || post.isLoading) {
+    if (!post.text || post.isLoading) {
       return <div className='loading-container'><Loader /></div>
     }
     return (
-      <Card>
-        <Card.Header>
-          <Card.Title>{post.title}</Card.Title>
-        </Card.Header>
-        <Card.Content>
-          <Card.Description>
-            {post.text}
-          </Card.Description>
-        </Card.Content>
-      </Card>
+      <div className='container blog-post-container'>
+        <Section>
+          {post.title}
+        </Section>
+        <div className='content blog-post'>
+          <ReactMarkdown source={post.text} />
+        </div>
+      </div>
     )
   }
 }

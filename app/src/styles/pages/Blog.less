@@ -10,7 +10,33 @@
   &-form {
     display: flex;
     flex-direction: column;
-    width: 50%;
     margin: auto;
+
+    & > form {
+      margin-bottom: 25px;
+    }
+  }
+
+  &-row {
+    & > a {
+      text-decoration: none;
+    }
+  }
+  &-post {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    & > div {
+      & > p {
+        & > img {
+          max-width: 50%;
+        }
+      }
+    }
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1;
+    }
   }
 }

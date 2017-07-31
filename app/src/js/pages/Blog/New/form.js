@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { validate } from './validators'
 
 import InputField from 'elements/InputField'
-import AreaField from 'elements/AreaField'
+import MdField from 'elements/MdField'
 import Button from 'elements/Button'
 
 const CreatePostForm = ({ handleSubmit }) =>
@@ -14,7 +14,7 @@ const CreatePostForm = ({ handleSubmit }) =>
     <Field component={InputField} name='title' label='Name' placeholder='Post name' icon='heading' />
     <Field component={InputField} name='slug' label='Slug' placeholder='Post slug' icon='link'  />
     <Field component={InputField} name='keywords' label='Search Keywords' placeholder='Keywords' icon='search' />
-    <Field component={AreaField} name='text' label='Body' placeholder='Blog post...' />
+    <Field component={MdField} name='text' label='Body' placeholder='Blog post...' />
     <div className='field is-grouped'>
       <div className='control'>
         <Button color='primary'>Submit</Button>

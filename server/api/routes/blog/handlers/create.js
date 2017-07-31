@@ -7,7 +7,7 @@ const { allPass, merge, path, pick, pipe, isNil } = require('ramda')
 
 const postAttributes = ['title', 'keywords', 'text', 'image']
 
-const getValidSlug = slug =>
+const validate = req =>
   Post.findOne({
     where: { slug }
   })
@@ -16,10 +16,6 @@ const getValidSlug = slug =>
       Promise.reject('slug exists')
       : slug
   )
-
-const validate = req => {
-  return getValidSlug(req.body.post.slug)
-}
 
 module.exports = (req, res) =>
   validate(req)
