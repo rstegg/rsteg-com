@@ -56,7 +56,16 @@ export default function(state = initialState, action) {
     return Object.assign({}, state, {
       new: {
         ...state.new,
+        ...action.payload.post,
         isCreated: true
+      }
+    })
+  case 'EDIT_POST_SUCCESS':
+    return Object.assign({}, state, {
+      active: {
+        ...state.active,
+        ...action.payload.post,
+        isEdited: true
       }
     })
   case 'LOGOUT':

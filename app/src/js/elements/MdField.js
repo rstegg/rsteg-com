@@ -5,8 +5,7 @@ const AreaField = ({ input, autoFocus, label, placeholder }) =>
   <SimpleMDE
     {...input}
     options={{
-      autofocus: autoFocus,
-      spellChecker: false,
+      autofocus: autoFocus
     }}
     placeholder={placeholder || label}
   />

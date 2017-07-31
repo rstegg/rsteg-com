@@ -3,7 +3,7 @@ const { Post, User } = models
 
 const { path } = require('ramda')
 
-const postAttributes = [ 'id', 'title', 'slug', 'keywords', 'text', 'image', 'userId' ]
+const postAttributes = [ 'id', 'title', 'slug', 'preview', 'keywords', 'text', 'image', 'userId' ]
 const userAttributes = [ 'image', 'username' ]
 
 const getUser = p => path([ 'user', p ])

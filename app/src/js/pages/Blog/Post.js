@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ReactMarkdown from 'react-markdown'
+import { NavLink } from 'react-router-dom'
+import Markdown from 'react-markdown'
 
 import Loader from 'elements/Loader'
 import Section from 'elements/Section'
@@ -23,8 +24,9 @@ class Blog extends Component {
           {post.title}
         </Section>
         <div className='content blog-post'>
-          <ReactMarkdown source={post.text} />
+          <Markdown source={post.text} />
         </div>
+        <NavLink to={`/blog/${post.slug}/edit`}>Edit post</NavLink>
       </div>
     )
   }
