@@ -1,15 +1,7 @@
 import React, { Component } from 'react'
 import HomeCard from './HomeCard'
 import TwitterFeed from './TwitterFeed'
-
-const colors = {
-  orange:   '#FF6A00',
-  lightOrange: '#FFA361',
-  yellow:   '#FFC761',
-  blue:     '#81A7E5',
-  teal:     '#C1E5E0',
-  pink:     '#FF9C92',
-}
+import Hero from 'elements/Hero'
 
 class Home extends Component {
   componentDidMount() {
@@ -17,43 +9,42 @@ class Home extends Component {
   }
   render() {
     return (
-      <div className='home'>
-        <HomeCard header='Kuwau - Personal Project'
-          href='https://www.kuwau.com'
-          color={colors.yellow}
-          icon='shopping-cart'
-          title='kuwau.com'
-          description='E-commerce with designers in mind'
-        />
-        <HomeCard header='Luvpay - Personal Project'
-          href='https://www.luvpay.io'
-          color={colors.lightOrange}
-          icon='heart'
-          title='luvpay.io'
-          description='Create forms and collect money'
-        />
-        <HomeCard header='My Github'
-          href='https://github.com/rstegg'
-          color={colors.pink}
-          icon='github'
-          title='github.com/rstegg'
-          description='Check out some code I wrote!'
-        />
-        <HomeCard header='My LinkedIn'
-          href='https://linkedin.com/in/rsteg'
-          color={colors.teal}
-          icon='linkedin'
-          title='linkedin.com/in/rstegd'
-          description='Connect with me on Linkedin!'
-        />
-        <HomeCard header='My Twitter'
-          href='https://www.twitter.com/rstegd'
-          color={colors.blue}
-          icon='twitter'
-          description={<TwitterFeed />}
-          isTwitterFeed
-        />
+      <div className='home-container'>
+        <Hero title='Ryan Stegmann' subtitle='Projects and media' />
+        <div className='home'>
+          <HomeCard
+            href='https://www.kuwau.com'
+            title='kuwau - side project'
+            image='/images/kuwau-preview.png'
+          />
+          <HomeCard
+            href='https://www.luvpay.io'
+            title='luvpay.io - side project'
+            image='/images/luvpay-preview.png'
+          />
+          <HomeCard
+            href='https://www.github.com/rstegg'
+            title='my github'
+            image='/images/github-preview.png'
+          />
+          <HomeCard
+            href='https://www.linkedin.com/in/rsteg'
+            title='my linkedin'
+            image='/images/linkedin-preview.png'
+          />
+          <div className='card home-card-twitter'>
+            <div className='card-header-title'>
+              my twitter
+            </div>
+            <div className='card-image'>
+              <figure className='image is-square'>
+                <TwitterFeed />
+              </figure>
+            </div>
+          </div>
+        </div>
       </div>
+
     )
   }
 }

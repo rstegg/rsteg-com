@@ -6,7 +6,7 @@ const Card = ({ as, children, ...props }) =>
 
 Card.Image = ({ src }) =>
   <div className='card-image'>
-    <figure className='image is-4by3'>
+    <figure className='image is-square'>
       <img src={src} alt='Image' />
     </figure>
   </div>
