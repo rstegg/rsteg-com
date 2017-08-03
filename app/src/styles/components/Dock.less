@@ -22,7 +22,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     color: #00d1b2;
     border: 1px solid rgba(34, 36, 38, .15);
     border-radius: 25%;
@@ -31,6 +30,7 @@
     font-size: 0.75em;
     margin-left: 15px;
     margin-right: 15px;
+
     transition: all 0.25s ease;
 
     & > span {
@@ -62,7 +62,7 @@
         transform: scale(0, 0);
       }
     }
-    
+
     &:active {
       & > span {
         letter-spacing: 2px;
@@ -92,11 +92,20 @@
     }
 
     &__item {
+
       height: 4em;
       width: 4em;
       margin-left: 1em;
       margin-right: 1em;
       border-radius: 50%;
+
+      & > svg {
+        position: relative;
+      }
+
+      & > span {
+        line-height: 3.5em;
+      }
 
         &:first-of-type {
           position: absolute;
@@ -110,4 +119,12 @@
   .dock--hide {
     bottom: 0;
   }
+
+  & > span {
+    line-height: auto;
+  }
+}
+
+.fa-home {
+  line-height: inherit !important;
 }

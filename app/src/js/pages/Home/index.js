@@ -10,17 +10,17 @@ class Home extends Component {
   render() {
     return (
       <div className='home-container'>
-        <Hero title='Ryan Stegmann' subtitle='Projects and media' />
+        <Hero title='Ryan Stegmann' subtitle='Web Connoisseur' />
         <div className='home'>
-          <HomeCard
-            href='https://www.kuwau.com'
-            title='kuwau - side project'
-            image='/images/kuwau-preview.png'
-          />
           <HomeCard
             href='https://www.luvpay.io'
             title='luvpay.io - side project'
             image='/images/luvpay-preview.png'
+          />
+          <HomeCard
+            href='https://www.kuwau.com'
+            title='kuwau - side project'
+            image='/images/kuwau-preview.png'
           />
           <HomeCard
             href='https://www.github.com/rstegg'
