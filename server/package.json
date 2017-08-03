@@ -6,6 +6,8 @@
   "license": "MIT",
   "repository": "",
   "scripts": {
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix",
     "dev": "nodemon dev.js",
     "start": "nodemon index.js > rsteg-com-server.log"
   },
@@ -33,6 +35,7 @@
     "socket.io": "^2.0.1"
   },
   "devDependencies": {
+    "eslint": "^4.3.0",
     "nodemon": "^1.11.0"
   }
 }

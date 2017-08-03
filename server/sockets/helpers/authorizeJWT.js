@@ -6,8 +6,8 @@ const getToken = path([ 'payload', 'user', 'token' ])
 module.exports = action =>
   new Promise((resolve, reject) =>
     !getToken(action) ? reject('no token')
-    : jwt.verify(getToken(action).slice(4), process.env.JWT_SECRET, (err, token) =>
+      : jwt.verify(getToken(action).slice(4), process.env.JWT_SECRET, (err, token) =>
         err ? reject('bad token')
-        : resolve(token)
+          : resolve(token)
       )
   )

@@ -34,7 +34,7 @@ const UserScheme = DataTypes => ({
     type: DataTypes.STRING,
     allowNull: false
   },
-  verify_token: {
+  verifyToken: {
     type: DataTypes.STRING,
     allowNull: false
   },
@@ -46,7 +46,7 @@ const UserScheme = DataTypes => ({
     type: DataTypes.STRING,
     allowNull: true
   },
-  ip_address: {
+  ipAddress: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
@@ -75,12 +75,12 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(Message, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' })
   }
   User.prototype.validPassword = password => {
-    const testhash = crypto.createHash('md5').update(password + this.salt).digest("hex");
+    const testhash = crypto.createHash('md5').update(password + this.salt).digest('hex')
     if (testhash === this.password) {
-      return true;
-    } else {
-      return false;
+      return true
     }
+    return false
+
   }
   return User
 }

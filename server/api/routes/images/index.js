@@ -1,8 +1,8 @@
+/*global apiRequire:true*/
+/*eslint no-undef: "error"*/
 const passport = apiRequire('service/auth')
 
 const router = require('express').Router()
-
-const AWS = require('aws-sdk')
 const multer = require('multer')
 const imager = require('multer-imager')
 const shortId = require('shortid')
@@ -20,7 +20,7 @@ const upload = multer({
     acl: 'public-read',
     contentType: imager.AUTO_CONTENT_TYPE,
     metadata: (req, file, cb) => {
-      cb(null, { fieldName: file.fieldname });
+      cb(null, { fieldName: file.fieldname })
     },
     filename: (req, file, cb) => {
       cb(null, shortId.generate() + '__' + Date.now().toString())
@@ -35,7 +35,7 @@ const upload = multer({
 })
 
 const success =
-  (req, res) => res.status(200).json({image: req.file.location})
+  (req, res) => res.status(200).json({ image: req.file.location })
 
 module.exports =
   router
@@ -46,7 +46,7 @@ module.exports =
     )
     .post('/post',
       upload.single('image'),
-      (req, res) => res.status(200).json({image: req.file.location})
+      success
     )
     .post('/post/:id',
       upload.single('image'),

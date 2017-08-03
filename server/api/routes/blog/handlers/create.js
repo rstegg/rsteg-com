@@ -1,11 +1,11 @@
+/*global requireDb:true*/
+/*eslint no-undef: "error"*/
 const { models } = requireDb
 const { Post } = models
 
-const shortId = require('shortid')
+const { merge, path, pick } = require('ramda')
 
-const { allPass, merge, path, pick, pipe, isNil } = require('ramda')
-
-const postAttributes = ['title', 'slug', 'keywords', 'preview', 'text', 'image']
+const postAttributes = [ 'title', 'slug', 'keywords', 'preview', 'text', 'image' ]
 
 const getUser = p => path([ 'user', p ])
 const getUserId = getUser('id')
@@ -17,11 +17,11 @@ const validate = req =>
   Post.findOne({
     where: { slug: getSlug(req) }
   })
-  .then(post =>
-    post ?
-      Promise.reject('slug exists')
-      : req.body.post
-  )
+    .then(post =>
+      post ?
+        Promise.reject('slug exists')
+        : req.body.post
+    )
 
 module.exports = (req, res) =>
   validate(req)
@@ -31,5 +31,5 @@ module.exports = (req, res) =>
       }, pick(postAttributes, post))
       return Post.create(newPost, { plain: true })
     })
-    .then(post => res.status(200).json({post}))
-    .catch(error => res.status(400).json({error}))
+    .then(post => res.status(200).json({ post }))
+    .catch(error => res.status(400).json({ error }))

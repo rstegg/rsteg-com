@@ -1,3 +1,5 @@
+/*global apiRequire:true*/
+/*eslint no-undef: "error"*/
 const { allPass, pipe, prop } = require('ramda')
 
 const validField = apiRequire('middleware/valid-field')
@@ -9,9 +11,9 @@ const validFields = (p, fields) =>
       fields.map(field => validField(field))
     )
   )
-  :
-  allPass(
-    fields.map(field => validField(field))
-  )
+    :
+    allPass(
+      fields.map(field => validField(field))
+    )
 
 module.exports = validFields

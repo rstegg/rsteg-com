@@ -1,12 +1,12 @@
+/*global requireDb:true*/
+/*eslint no-undef: "error"*/
 const { models } = requireDb
 const { User } = models
 
-const jwt = require('jsonwebtoken')
-
 const passport = require('passport')
 
-const passportJWT = require("passport-jwt")
-const passportLocal = require("passport-local")
+const passportJWT = require('passport-jwt')
+const passportLocal = require('passport-local')
 
 const { ExtractJwt, Strategy: JwtStrategy } = passportJWT
 const { Strategy: LocalStrategy } = passportLocal
@@ -17,10 +17,10 @@ const localStrategy = new LocalStrategy(
     User.findOne({ where: { username } })
       .then(user =>
         !user ? done(null, false, { message: 'Incorrect username' })
-        : !user.validPassword(password) ? done(null, false, { message: 'Incorrect password' })
-        : done(null, user)
+          : !user.validPassword(password) ? done(null, false, { message: 'Incorrect password' })
+            : done(null, user)
       )
-      .catch(err => done(null, false, { message: 'Incorrect username or password' }))
+      .catch(() => done(null, false, { message: 'Incorrect username or password' }))
 )
 
 const jwtOptions = {}
@@ -29,11 +29,11 @@ jwtOptions.secretOrKey = process.env.JWT_SECRET
 jwtOptions.ignoreExpiration = true
 
 const jwtStrategy = new JwtStrategy(jwtOptions,
-  (jwt_payload, done) =>
-    User.findById(jwt_payload.id)
+  (jwtPayload, done) =>
+    User.findById(jwtPayload.id)
       .then(user =>
         !user ? done(null, false, { error: 'Invalid token' })
-        : done(null, user)
+          : done(null, user)
       )
       .catch(err => done(err))
 )

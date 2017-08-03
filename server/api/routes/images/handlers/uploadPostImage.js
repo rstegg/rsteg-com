@@ -1,3 +1,5 @@
+/*global requireDb:true*/
+/*eslint no-undef: "error"*/
 const { models } = requireDb
 const { Post } = models
 
@@ -7,6 +9,6 @@ module.exports = (req, res) =>
     { where: { slug: req.params.id, userId: req.user.id },
       returning: true,
       plain: true
-  })
-  .then(profile => res.status(200).json({image: req.file.location}))
-  .catch(error => res.status(400).json({error}))
+    })
+    .then(post => res.status(200).json({ image: post.image }))
+    .catch(error => res.status(400).json({ error }))

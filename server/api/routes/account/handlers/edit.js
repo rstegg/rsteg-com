@@ -1,43 +1,39 @@
+/*global requireDb:true*/
+/*eslint no-undef: "error"*/
 const { models } = requireDb
 const { User } = models
 
 const crypto = require('crypto')
-const mailcomposer = require('mailcomposer')
-const shortId = require('shortid')
 
-// const { confirmationMail, sendConfirmation } = apiRequire('service/mail')
+const { path, pick, merge } = require('ramda')
 
-const { allPass, path, pick, pipe, merge, isNil } = require('ramda')
+const accountAttributes = [ 'id', 'name', 'username', 'image', 'bio', 'website' ]
 
-const accountAttributes = ['id', 'name', 'username', 'image', 'bio', 'website']
-
-const validField = p => obj => !isNil(path([p], obj))
-
-const getAccount = path(['body', 'account'])
-const getOldPassword = path(['body', 'account', 'oldPassword'])
-const getUsername = path(['body', 'account', 'username'])
-const getEmail = path(['body', 'account', 'email'])
-const getUserId = path(['user', 'id'])
+const getAccount = path([ 'body', 'account' ])
+const getOldPassword = path([ 'body', 'account', 'oldPassword' ])
+const getUsername = path([ 'body', 'account', 'username' ])
+const getEmail = path([ 'body', 'account', 'email' ])
+const getUserId = path([ 'user', 'id' ])
 
 const validateEmail = req =>
   User.findOne({
-      where: { email: getEmail(req), id: { $ne: getUserId(req) } }
+    where: { email: getEmail(req), id: { $ne: getUserId(req) } }
   })
-  .then(user =>
+    .then(user =>
       user ?
-          Promise.reject('email taken')
-          : getAccount(req)
-  )
+        Promise.reject('email taken')
+        : getAccount(req)
+    )
 
 const validateUsername = req =>
   User.findOne({
-      where: { username: getUsername(req), id: { $ne: getUserId(req) } }
+    where: { username: getUsername(req), id: { $ne: getUserId(req) } }
   })
-  .then(user =>
+    .then(user =>
       user ?
-          Promise.reject('username taken')
-          : validateEmail(req)
-  )
+        Promise.reject('username taken')
+        : validateEmail(req)
+    )
 
 const validatePassword = (user, req) =>
   !user.validPassword(getOldPassword(req)) ?
@@ -46,26 +42,26 @@ const validatePassword = (user, req) =>
 
 const validate = req =>
   User.findOne({
-      where: { id: req.user.id },
-      plain: true
+    where: { id: req.user.id },
+    plain: true
   })
-  .then(user =>
+    .then(user =>
       !user ? Promise.reject('invalid user')
-      : validatePassword(user, req)
-  )
+        : validatePassword(user, req)
+    )
 
 module.exports = (req, res) =>
   validate(req)
     .then(validAccount => {
       const verified = (validAccount.email === req.user.email) && req.user.verified
       const reqPassword = validAccount.newPassword || validAccount.oldPassword
-      const updatedPassword = crypto.createHash('md5').update(reqPassword + req.user.salt).digest("hex")
+      const updatedPassword = crypto.createHash('md5').update(reqPassword + req.user.salt).digest('hex')
       const updatedUser = merge({
         username: validAccount.username || req.body.account.username,
         verified,
         email: validAccount.email,
         password: updatedPassword
-      }, pick(['name', 'dob', 'bio', 'website'], req.body.account))
+      }, pick([ 'name', 'dob', 'bio', 'website' ], req.body.account))
       return User.update(updatedUser, { where: { id: req.user.id }, returning: true, plain: true })
     })
     .then(user => {
@@ -77,6 +73,6 @@ module.exports = (req, res) =>
         // sendConfirmation(mail, updatedUser)
       }
       const account = pick(accountAttributes, updatedUser)
-      res.status(200).json({account})
+      res.status(200).json({ account })
     })
-    .catch(error => res.status(400).json({error}))
+    .catch(error => res.status(400).json({ error }))

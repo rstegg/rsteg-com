@@ -1,6 +1,8 @@
+/*global apiRequire:true*/
+/*eslint no-undef: "error"*/
 const router = require('express').Router()
 const passport = apiRequire('service/auth')
-const { allPass, pipe, path, prop } = require('ramda')
+const { prop } = require('ramda')
 
 const loginHandler = require('./handlers/login')
 const signupHandler = require('./handlers/signup')
@@ -11,26 +13,26 @@ const verifyTokenHandler = require('./handlers/verifyToken')
 const validateBody = apiRequire('middleware/validate-body')
 const validFields = apiRequire('middleware/valid-fields')
 
-const validSignupUser = validFields('user', ['email', 'username', 'password'])
+const validSignupUser = validFields('user', [ 'email', 'username', 'password' ])
 
 module.exports =
   router
-    .post(`/login`,
+    .post('/login',
       passport.authenticate('local', { session: false }),
       loginHandler
     )
-    .post(`/signup`,
+    .post('/signup',
       validateBody(validSignupUser),
       signupHandler
     )
-   .post(`/signup/validate_email`,
+    .post('/signup/validate_email',
       validateBody(prop('email'), 'missing email'),
       validateEmailHandler
     )
-    .post(`/signup/validate_username`,
+    .post('/signup/validate_username',
       validateBody(prop('username'), 'missing username'),
       validateUsernameHandler
     )
-    .get(`/signup/email_confirmation/:permalink/:verify_token`,
+    .get('/signup/email_confirmation/:permalink/:verify_token',
       verifyTokenHandler
     )

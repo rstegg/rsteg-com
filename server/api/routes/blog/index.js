@@ -1,6 +1,7 @@
+/*global apiRequire:true*/
+/*eslint no-undef: "error"*/
 const router = require('express').Router()
 const passport = apiRequire('service/auth')
-const { allPass, pipe, path } = require('ramda')
 
 const createBlogPost = require('./handlers/create')
 const editBlogPost = require('./handlers/edit')
@@ -10,7 +11,7 @@ const getSingleBlogPost = require('./handlers/getSingle')
 const validateBody = apiRequire('middleware/validate-body')
 const validFields = apiRequire('middleware/valid-fields')
 
-const validPost = validFields('post', ['title', 'preview', 'slug', 'text'])
+const validPost = validFields('post', [ 'title', 'preview', 'slug', 'text' ])
 
 module.exports =
   router
