@@ -8,7 +8,7 @@ const crypto = require('crypto')
 
 const { not, merge, path, pick, reduceWhile } = require('ramda')
 
-const bytes = (n) => crypto.randomBytes(n).toString('hex')
+const bytes = n => crypto.randomBytes(n).toString('hex')
 
 const ipFields = [
   [ 'ip' ],
@@ -44,7 +44,7 @@ const validate = req =>
 
 module.exports = (req, res) => {
   validate(req)
-    .then((validatedUser) => {
+    .then(validatedUser => {
       const salt = (Math.floor(Math.random() * 1000000000)).toString(36)
       const hash = crypto.createHash('md5').update(validatedUser.password + salt).digest('hex')
       const user = merge({

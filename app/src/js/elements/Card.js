@@ -1,5 +1,14 @@
 import React from 'react'
 import { generateIcon } from 'utils/helpers'
+import { pipe, split, head, last } from 'ramda'
+
+const imageName =
+  pipe(
+    split('/'),
+    last,
+    split('.'),
+    head
+  )
 
 const Card = ({ as, children, ...props }) =>
   React.createElement(as || 'div', { className: 'card', ...props }, children)
@@ -7,7 +16,7 @@ const Card = ({ as, children, ...props }) =>
 Card.Image = ({ src }) =>
   <div className='card-image'>
     <figure className='image is-square'>
-      <img src={src} alt='Image' />
+      <img src={src} alt={imageName(src)} />
     </figure>
   </div>
 

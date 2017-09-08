@@ -35,6 +35,14 @@ class Dock extends Component {
           <span className='dock__item-text'>Home</span>
           <i className={generate2xIcon('home')}></i>
         </NavLink>
+        <NavLink to='/projects' className='dock__item'>
+          <span className='dock__item-text'>Works</span>
+          <i className={generate2xIcon('folder-open')}></i>
+        </NavLink>
+        <NavLink to='/medias' className='dock__item'>
+          <span className='dock__item-text'>Social</span>
+          <i className={generate2xIcon('globe')}></i>
+        </NavLink>
         <NavLink to='/blog' className='dock__item'>
           <span className='dock__item-text'>Blog</span>
           <i className={generate2xIcon('list')}></i>

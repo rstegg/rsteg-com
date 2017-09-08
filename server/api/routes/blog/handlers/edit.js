@@ -31,8 +31,5 @@ module.exports = (req, res) =>
       const updatedPost = pick(postAttributes, post)
       return Post.update(updatedPost, { where: { id: getId(req), userId: getUserId(req) }, returning: true, plain: true })
     })
-    .then(savedPost => {
-      const post = pick(resAttributes, savedPost[1])
-      res.status(200).json({ post })
-    })
+    .then(([ n, [ savedPost ] ]) => res.status(200).json({ post: pick(resAttributes, savedPost) }))
     .catch(error => res.status(400).json({ error }))

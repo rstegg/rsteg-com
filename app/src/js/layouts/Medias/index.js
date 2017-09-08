@@ -1,13 +1,13 @@
 import React from 'react'
 import Hero from 'elements/Hero'
 
-const BlogLayout = ({ children }) =>
-  <div className='blog'>
+const MediasLayout = ({ children }) =>
+  <div className='medias'>
     <Hero>
       <Hero.Title>Ryan Stegmann</Hero.Title>
-      <Hero.Subtitle>My Blog</Hero.Subtitle>
+      <Hero.Subtitle>Social Medias</Hero.Subtitle>
     </Hero>
     {children}
   </div>
 
-export default BlogLayout
+export default MediasLayout

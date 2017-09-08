@@ -15,7 +15,9 @@
     "prebuild": "rm -rf build && mkdir build",
     "build": "npm-run-all --parallel html:build assets:build bundle:build",
     "staging": "rm -rf ../server/build && mv build ../server/build",
-    "build:staging": "npm-run-all --serial build staging"
+    "build:staging": "npm-run-all --serial build staging",
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix"
   },
   "dependencies": {
     "bulma": "^0.4.3",

@@ -1,52 +1,24 @@
-import React, { Component } from 'react'
-import HomeCard from './HomeCard'
-import TwitterFeed from './TwitterFeed'
+import React from 'react'
 import Hero from 'elements/Hero'
+import Section from 'elements/Section'
 
-class Home extends Component {
-  componentDidMount() {
-    window.twttr && window.twttr.widgets.load()
-  }
-  render() {
-    return (
-      <div className='home-container'>
-        <Hero title='Ryan Stegmann' subtitle='Web Connoisseur' />
-        <div className='home'>
-          <HomeCard
-            href='https://www.luvpay.io'
-            title='luvpay.io - side project'
-            image='/images/luvpay-preview.png'
-          />
-          <HomeCard
-            href='https://www.kuwau.com'
-            title='kuwau - side project'
-            image='/images/kuwau-preview.png'
-          />
-          <HomeCard
-            href='https://www.github.com/rstegg'
-            title='my github'
-            image='/images/github-preview.png'
-          />
-          <HomeCard
-            href='https://www.linkedin.com/in/rsteg'
-            title='my linkedin'
-            image='/images/linkedin-preview.png'
-          />
-          <div className='card home-card-twitter'>
-            <div className='card-header-title'>
-              my twitter
-            </div>
-            <div className='card-image'>
-              <figure className='image is-square'>
-                <TwitterFeed />
-              </figure>
-            </div>
+const Home = () =>
+  <div className='home-container'>
+    <Hero>
+      <Hero.Title>Ryan Stegmann</Hero.Title>
+      <Hero.Subtitle>Test-driven, UX-focused product manager and entrepreneur.</Hero.Subtitle>
+    </Hero>
+    <div className='home'>
+      <div className='container'>
+        <Section title='Hi.'>
+          <br />
+          <div className='content'>
+            <p>My name is Ryan.  I&rsquo;m a frontend developer, product manager and entrepreneur who helps startups create lovable apps.</p>
+            <p>I&rsquo;m a passionate developer, coffee drinker and crazy dogs&rsquo; owner living in Riverside, California.</p>
           </div>
-        </div>
+        </Section>
       </div>
-
-    )
-  }
-}
+    </div>
+  </div>
 
 export default Home

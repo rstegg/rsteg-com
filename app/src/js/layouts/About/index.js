@@ -5,7 +5,10 @@ import AboutNav from './Nav'
 
 const AboutLayout = ({ children }) =>
   <div className='about'>
-    <Hero title='Ryan Stegmann' subtitle='About me' />
+    <Hero>
+      <Hero.Title>Ryan Stegmann</Hero.Title>
+      <Hero.Subtitle>About me</Hero.Subtitle>
+    </Hero>
     <AboutNav />
     {children}
   </div>
