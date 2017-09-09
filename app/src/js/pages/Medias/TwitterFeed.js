@@ -13,11 +13,11 @@ const getHeight = () => {
     }
     return height * 0.75
   }
-  return '345'
+  return height * 0.55
 }
 
 const TwitterFeed = () =>
-  <div className='home__twitter-feed'>
+  <div className='medias__twitter-feed'>
     <a className='twitter-timeline' data-height={getHeight()} href='https://twitter.com/rstegd'>
       Tweets by rstegd
     </a>

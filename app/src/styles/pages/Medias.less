@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  height: 50%;
+  justify-content: space-between;
   width: 100%;
   padding: 1em;
 
@@ -11,8 +10,7 @@
     display: flex;
     position: absolute;
     flex-direction: column;
-    align-items: stretch;
-    height: 100%;
+    top: 0;
     width: 100%;
   }
 
@@ -27,11 +25,24 @@
     text-decoration: none;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     margin: 1em;
+    width: 100%;
     &:hover {
       box-shadow: 0 5px 15px @hover-shadow, 0 0 0 1px @card-shadow;
     }
   }
+  &-twitter {
+    width: 100%;
+    height: auto;
+    margin: 1em;
+  }
+  &__twitter-feed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 }
+
 
 @media screen and (min-width: 1025px), print {
   .medias {

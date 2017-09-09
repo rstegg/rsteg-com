@@ -11,7 +11,7 @@ const ProjectsList = () =>
       </Card.Header>
       <Card.Content>
         <Card.Description>
-          Collect money
+          Collect Money
         </Card.Description>
       </Card.Content>
     </Card>
@@ -31,7 +31,7 @@ const ProjectsList = () =>
       </Card.Header>
       <Card.Content>
         <Card.Description>
-          Helping retail accept bitcoin
+          Retail Bitcoin
         </Card.Description>
       </Card.Content>
     </Card>
