@@ -3,9 +3,7 @@ import Section from 'elements/Section'
 
 const Interests = () =>
   <div className='container'>
-    <Section>
-      What interests me
-    </Section>
+    <Section>What interests me</Section>
     <div className='content'>
       <p>I am very interested in declarative, functional programming with a preference against strongly typed languages.
         It is not a popular opinion, but I feel that strong types should be considered at a slightly higher level, where the developer has more control over coercion.

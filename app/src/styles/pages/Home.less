@@ -8,12 +8,18 @@
 
   &-container {
     display: flex;
+    position: absolute;
     flex-direction: column;
+    top: 0;
     width: 100%;
   }
 
-  &-hero__subtitle {
-    font-size: 14pt;
+  &__links {
+    display: flex;
+    align-items: center;
+    & > a {
+      margin-right: 10px;
+    }
   }
 
   &-card {

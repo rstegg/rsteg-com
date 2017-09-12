@@ -3,9 +3,7 @@ import Section from 'elements/Section'
 
 const Languages = () =>
   <div className='container'>
-    <Section>
-      My Expertise
-    </Section>
+    <Section>My Expertise</Section>
     <div className='content'>
       <table className='table'>
         <thead>

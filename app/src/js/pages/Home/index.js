@@ -1,4 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+
 import Hero from 'elements/Hero'
 import Section from 'elements/Section'
 
@@ -15,6 +17,14 @@ const Home = () =>
           <div className='content'>
             <p>My name is Ryan.  I&rsquo;m a frontend developer, project manager and entrepreneur who helps startups create lovable apps.</p>
             <p>I&rsquo;m a passionate developer, coffee drinker and crazy dogs&rsquo; owner living in Riverside, California.</p>
+          </div>
+          <div className='section home__links'>
+            <NavLink to='/projects' className='button is-medium'>
+              My Projects
+            </NavLink>
+            <NavLink to='https://github.com/rstegg' className='button is-medium'>
+              My Github
+            </NavLink>
           </div>
         </Section>
       </div>
