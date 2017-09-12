@@ -22,12 +22,12 @@ const Home = () =>
             <NavLink to='/projects' className='button is-medium'>
               My Projects
             </NavLink>
-            <NavLink to='https://github.com/rstegg' className='button is-medium'>
+            <a href='https://github.com/rstegg' className='button is-medium'>
               My Github
-            </NavLink>
-            <NavLink to='https://github.com/rstegg/rsteg-com' className='button is-medium'>
+            </a>
+            <a href='https://github.com/rstegg/rsteg-com' className='button is-medium'>
               Source code for this site
-            </NavLink>
+            </a>
           </div>
         </Section>
       </div>
