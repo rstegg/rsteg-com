@@ -25,6 +25,9 @@ const Home = () =>
             <NavLink to='https://github.com/rstegg' className='button is-medium'>
               My Github
             </NavLink>
+            <NavLink to='https://github.com/rstegg/rsteg-com' className='button is-medium'>
+              Source code for this site
+            </NavLink>
           </div>
         </Section>
       </div>
