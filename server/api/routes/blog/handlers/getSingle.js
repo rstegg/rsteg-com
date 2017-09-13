@@ -5,19 +5,12 @@ const { Post, User } = models
 
 const { path } = require('ramda')
 
-const postAttributes = [ 'id', 'title', 'slug', 'preview', 'keywords', 'text', 'image', 'userId' ]
-const userAttributes = [ 'image', 'username' ]
+const postAttributes = [ 'id', 'title', 'slug', 'preview', 'keywords', 'text', 'image' ]
 
 const getId = path([ 'params', 'id' ])
 
 module.exports = (req, res) =>
   Post.findOne({
-    include: [
-      {
-        model: User,
-        attributes: userAttributes
-      }
-    ],
     where: { slug: getId(req) },
     attributes: postAttributes
   })

@@ -7,11 +7,12 @@ const { merge, path, pick } = require('ramda')
 
 const postAttributes = [ 'title', 'slug', 'keywords', 'preview', 'text', 'image' ]
 
-const getUser = p => path([ 'user', p ])
-const getUserId = getUser('id')
-
 const getPost = p => path([ 'body', 'post', p ])
 const getSlug = getPost('slug')
+const getSecret = getPost('secret')
+
+const authorize = req =>
+  new Promise((res, rej) => getSecret(req) !== process.env.BLOG_ADMIN_SECRET ? rej('bad secret') : res(req))
 
 const validate = req =>
   Post.findOne({
@@ -24,12 +25,8 @@ const validate = req =>
     )
 
 module.exports = (req, res) =>
-  validate(req)
-    .then(post => {
-      const newPost = merge({
-        userId: getUserId(req)
-      }, pick(postAttributes, post))
-      return Post.create(newPost, { plain: true })
-    })
+  authorize(req)
+    .then(validate)
+    .then(post => Post.create(pick(postAttributes, post), { plain: true }))
     .then(post => res.status(200).json({ post }))
     .catch(error => res.status(400).json({ error }))

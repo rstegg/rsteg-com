@@ -36,6 +36,14 @@ export default function(state = initialState, action) {
       error: 'Something went wrong. Please contact me if error persists!',
       isLoading: false
     })
+  case 'FETCH_SINGLE_POST_FAILURE':
+    return Object.assign({}, state, {
+      active: {
+        ...initialState.active,
+        error: 'Something went wrong. Please contact me if error persists!',
+        isLoading: false
+      }
+    })
   case 'OPEN_POST_IMAGE_CROPPER':
     return Object.assign({}, state, {
       new: {

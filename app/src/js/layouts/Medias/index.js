@@ -2,7 +2,7 @@ import React from 'react'
 import Hero from 'elements/Hero'
 
 const MediasLayout = ({ children }) =>
-  <div className='medias'>
+  <div className='medias-container'>
     <Hero>
       <Hero.Title>Ryan Stegmann</Hero.Title>
       <Hero.Subtitle>Social Medias</Hero.Subtitle>

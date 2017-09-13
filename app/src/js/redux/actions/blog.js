@@ -45,12 +45,11 @@ export const onFetchSinglePostSuccess = res =>
   }
 })
 
-export const createPost = (post, user) =>
+export const createPost = post =>
 ({
   type: 'CREATE_POST',
   payload: {
-    post,
-    user
+    post
   }
 })
 
@@ -62,12 +61,11 @@ export const onCreatePostSuccess = res =>
   }
 })
 
-export const editPost = (post, user) =>
+export const editPost = post =>
 ({
   type: 'EDIT_POST',
   payload: {
-    post,
-    user
+    post
   }
 })
 
@@ -79,29 +77,11 @@ export const onEditPostSuccess = res =>
   }
 })
 
-export const deletePost = (postId, user) =>
-({
-  type: 'DELETE_POST',
-  payload: {
-    postId,
-    user
-  }
-})
-
-export const onDeletePostSuccess = res =>
-({
-  type: 'DELETE_POST_SUCCESS',
-  payload: {
-    post: res.body.post
-  }
-})
-
-export const uploadPostImage = (image, user) =>
+export const uploadPostImage = image =>
 ({
   type: 'UPLOAD_POST_IMAGE',
   payload: {
-    image,
-    token: user.token
+    image
   }
 })
 

@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import Markdown from 'react-markdown'
 
 import Loader from 'elements/Loader'
-import Section from 'elements/Section'
+import Hero from 'elements/Hero'
 
 import { fetchSinglePost } from 'actions/blog'
 
@@ -19,14 +18,16 @@ class Blog extends Component {
       return <div className='loading-container'><Loader /></div>
     }
     return (
-      <div className='container blog-post-container'>
-        <Section>
-          {post.title}
-        </Section>
-        <div className='content blog-post'>
-          <Markdown source={post.text} />
+      <div className='blog-post-container'>
+        <Hero.Blog>
+          <Hero.Title>{post.title}</Hero.Title>
+          <Hero.Subtitle>{post.preview}</Hero.Subtitle>
+        </Hero.Blog>
+        <div className='container'>
+          <div className='content blog-post'>
+            <Markdown source={post.text} />
+          </div>
         </div>
-        <NavLink to={`/blog/${post.slug}/edit`}>Edit post</NavLink>
       </div>
     )
   }

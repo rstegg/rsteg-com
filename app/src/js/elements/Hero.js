@@ -9,6 +9,17 @@ const Hero = ({ children }) =>
     </div>
   </section>
 
+Hero.Blog = ({ children }) =>
+  <section className='hero is-info is-small'>
+    <div className='hero-body'>
+      <div className='container'>
+        {children}
+      </div>
+    </div>
+  </section>
+
+Hero.Blog.displayName = 'Hero.Blog'
+
 Hero.Title = ({ children }) =>
   <h1 className='title'>
     {children}

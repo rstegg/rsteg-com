@@ -25,9 +25,6 @@ const Home = () =>
             <a href='https://github.com/rstegg' className='button is-medium'>
               My Github
             </a>
-            <a href='https://github.com/rstegg/rsteg-com' className='button is-medium'>
-              Source code for this site
-            </a>
           </div>
         </Section>
       </div>

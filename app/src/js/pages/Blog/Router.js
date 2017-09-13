@@ -8,8 +8,8 @@ import New from './New'
 import Post from './Post'
 import Edit from './Edit'
 
-const AboutRouter = () =>
-  <BlogLayout>
+const AboutRouter = ({ location }) =>
+  <BlogLayout location={location}>
     <Switch>
       <Route exact path='/blog' component={List} />
       <Route exact path='/blog/new' component={New} />

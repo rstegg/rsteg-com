@@ -28,9 +28,6 @@ const PostScheme = DataTypes => ({
 
 module.exports = (sequelize, DataTypes) => {
   const Post = sequelize.define('posts', PostScheme(DataTypes))
-  Post.freezeTableName = true
-  Post.associate = ({ User }) => {
-    Post.belongsTo(User, { foreignKey: { allowNull: true }, onDelete: 'CASCADE' })
-  }
+
   return Post
 }

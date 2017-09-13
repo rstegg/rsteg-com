@@ -9,7 +9,7 @@ export const get = endpoint =>
       .set('Accept', 'application/json')
   )
 
-export const post = (endpoint, body) =>
+export const httpPost = (endpoint, body) =>
   Observable.from(
     su.post(`${API_HOST}/${endpoint}`)
       .send(body)
@@ -20,5 +20,12 @@ export const put = (endpoint, body) =>
   Observable.from(
     su.put(`${API_HOST}/${endpoint}`)
       .send(body)
+      .set('Accept', 'application/json')
+  )
+
+export const imagePost = (endpoint, image) =>
+  Observable.from(
+    su.post(`${API_HOST}/${endpoint}`)
+      .attach('image', image)
       .set('Accept', 'application/json')
   )

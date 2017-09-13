@@ -4,29 +4,25 @@ import {
   onFetchSinglePostSuccess,
   onCreatePostSuccess,
   onEditPostSuccess,
-  onDeletePostSuccess,
   onUploadPostImageSuccess,
   onUploadEditPostImageSuccess
 } from 'actions/blog'
 import { Observable } from 'rxjs/Rx'
-import { authPost, authImagePost, authPut, authDelete } from './helpers/authReq'
-import { get } from './helpers/req'
+import { get, httpPost, imagePost, put } from './helpers/req'
 
 const api = {
   fetchPosts: () =>
     get('blog'),
   fetchSinglePost: ({ postId }) =>
     get(`blog/${postId}`),
-  createPost: ({ post, user }) =>
-    authPost('blog', { post }, user.token),
-  editPost: ({ post, user }) =>
-    authPut(`blog/${post.id}`, { post }, user.token),
-  deletePost: ({ postId, user }) =>
-    authDelete(`blog/${postId}`, user.token),
-  uploadPostImage: ({ image, token }) =>
-    authImagePost('image/post', image, token),
-  uploadEditPostImage: ({ image, postId, token }) =>
-    authImagePost(`image/post/${postId}`, image, token),
+  createPost: ({ post }) =>
+    httpPost('blog', { post }),
+  editPost: ({ post }) =>
+    put(`blog/${post.id}`, { post }),
+  uploadPostImage: ({ image }) =>
+    imagePost('image/post', image),
+  uploadEditPostImage: ({ image, postId }) =>
+    imagePost(`image/post/${postId}`, image),
 }
 
 const fetchPosts = action$ =>
@@ -73,17 +69,6 @@ const editPost = action$ =>
         }))
       )
 
-const deletePost = action$ =>
-  action$.ofType('DELETE_POST')
-    .mergeMap(action =>
-      api.deletePost(action.payload)
-        .map(onDeletePostSuccess)
-        .catch(error => Observable.of({
-          type: 'DELETE_POST_FAILURE',
-          error
-        }))
-      )
-
 const uploadPostImage = action$ =>
   action$.ofType('UPLOAD_POST_IMAGE')
     .mergeMap(action =>
@@ -111,7 +96,6 @@ export default combineEpics(
   fetchSinglePost,
   createPost,
   editPost,
-  deletePost,
   uploadPostImage,
   uploadEditPostImage
 )

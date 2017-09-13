@@ -15,6 +15,7 @@ const CreatePostForm = ({ handleSubmit }) =>
     <Field component={InputField} name='slug' label='Slug' placeholder='Post slug' icon='link'  />
     <Field component={InputField} name='preview' label='Preview' placeholder='Preview' icon='pen-alt' />
     <Field component={InputField} name='keywords' label='Search Keywords' placeholder='Keywords' icon='search' />
+    <Field component={InputField} name='secret' label='Secret' placeholder='Secret' icon='key' type='password' />
     <Field component={MdField} name='text' label='Body' placeholder='Blog post...' />
     <div className='field is-grouped'>
       <div className='control'>

@@ -3,7 +3,7 @@
 const { models } = requireDb
 const { Post } = models
 
-const postAttributes = [ 'id', 'title', 'slug', 'keywords', 'preview', 'image', 'userId' ]
+const postAttributes = [ 'id', 'title', 'slug', 'keywords', 'preview', 'image' ]
 
 module.exports = (req, res) =>
   Post.findAll({ attributes: postAttributes })
