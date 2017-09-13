@@ -1,13 +1,6 @@
 /*Helpers*/
 import { isDevelopment, isProduction, reduxDevCompose, hasReactDevTools, disableReactDevTools } from 'utils/helpers'
 
-/*WebSockets Middleware*/
-import io from 'socket.io-client'
-const socket = io({ path: '/WSS' })
-
-import createSocketIoMiddleware from 'utils/redux-middleware/reduxSocketIo'
-const socketIoMiddleware = createSocketIoMiddleware(socket, 'WS/')
-
 /*Router history middleare*/
 import createHistory from 'history/createBrowserHistory'
 export const history = createHistory()
@@ -41,8 +34,7 @@ const store = createStore(
   composeEnhancers(
     applyMiddleware(
       epicMiddleware,
-      routingMiddleware,
-      socketIoMiddleware
+      routingMiddleware
     ),
     autoRehydrate()
   )
