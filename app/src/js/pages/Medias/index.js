@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TwitterFeed from './TwitterFeed'
 import Hero from 'elements/Hero'
-import Card from 'elements/Card'
+import MediaCard from './MediaCard'
 
 const TwitterCard = () =>
   <div className='card medias-twitter'>
@@ -14,14 +14,6 @@ const TwitterCard = () =>
       </figure>
     </div>
   </div>
-
-const MediaCard = ({ href, title, image }) =>
-  <Card as='a' href={href} className='card medias-card'>
-    <Card.Header>
-      <Card.Title>{title}</Card.Title>
-    </Card.Header>
-    <Card.Image src={image} />
-  </Card>
 
 class Home extends Component {
   componentDidMount() {

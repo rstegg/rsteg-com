@@ -27,7 +27,7 @@ class ImageCropper extends Component {
             color={[ 255, 255, 255, 0.6 ]}
             scale={1}
           />
-          <button className='button is-primary' onClick={() => this.onSave()}>Save</button>
+          <button className='button is-primary cropper-save' onClick={() => this.onSave()}>Save</button>
         </div>
         <button className='modal-close is-large' onClick={closeCropper}></button>
       </div>

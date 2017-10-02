@@ -14,36 +14,34 @@
     width: 100%;
   }
 
-  &__links {
+  &-content {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &-quicklinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    & > a {
-      margin-right: 10px;
-      padding: 10px;
-    }
-  }
+    margin-top: 100px;
+    background-color: @info;
 
-  &-card {
-    cursor: pointer;
-    text-decoration: none;
-    width: 100%;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    margin: 1em;
-    &:hover {
-      box-shadow: 0 5px 15px @hover-shadow, 0 0 0 1px @card-shadow;
+    & > h2 {
+      margin-top: 25px;
+      color: @white;
     }
-    &-twitter {
-      width: 100%;
-      height: auto;
-      margin: 1em;
-    }
-  }
 
-  &__twitter-feed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    &__group {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      & > a {
+        margin-right: 10px;
+        padding: 10px;
+      }
+    }
   }
 }
 

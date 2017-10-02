@@ -11,8 +11,9 @@ const ProjectsList = () =>
       </Card.Header>
       <Card.Content>
         <Card.Description>
-          Collect Money
+          Collect Money with ease.
         </Card.Description>
+        <Card.Image src='/images/luvpay-preview.png' />
       </Card.Content>
     </Card>
     <Card as={NavLink} to='/projects/kuwau' className='card projects-card'>
@@ -21,8 +22,9 @@ const ProjectsList = () =>
       </Card.Header>
       <Card.Content>
         <Card.Description>
-          E-commerce for designers
+          E-commerce for designers.
         </Card.Description>
+        <Card.Image src='/images/kuwau-preview.png' />
       </Card.Content>
     </Card>
     <Card as={NavLink} to='/projects/cloudcashier' className='card projects-card'>
@@ -31,8 +33,9 @@ const ProjectsList = () =>
       </Card.Header>
       <Card.Content>
         <Card.Description>
-          Retail Bitcoin
+          Retail Bitcoin for mobile.
         </Card.Description>
+        <Card.Image src='/images/cloudcashier-preview.png' />
       </Card.Content>
     </Card>
   </div>

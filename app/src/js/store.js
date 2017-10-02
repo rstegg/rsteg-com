@@ -24,8 +24,6 @@ if (isProduction && hasReactDevTools) {
   disableReactDevTools()
 }
 
-import { persistStore, autoRehydrate } from 'redux-persist'
-
 import rootReducer from './redux/reducers'
 
 const store = createStore(
@@ -35,15 +33,9 @@ const store = createStore(
     applyMiddleware(
       epicMiddleware,
       routingMiddleware
-    ),
-    autoRehydrate()
+    )
   )
 )
-
-const persistConfig = {
-  whitelist: [ 'user' ]
-}
-persistStore(store, persistConfig)
 
 if (isDevelopment) {
   if (module.hot) {

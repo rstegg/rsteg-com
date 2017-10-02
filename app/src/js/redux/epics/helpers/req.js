@@ -1,5 +1,6 @@
 import su from 'superagent'
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/observable/from'
 
 const API_HOST = '/api/v1'
 

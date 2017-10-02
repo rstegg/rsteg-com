@@ -23,9 +23,9 @@
   &-card {
     cursor: pointer;
     text-decoration: none;
-    width: 100%;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     margin: 1em;
+    width: 100%;
     &:hover {
       box-shadow: 0 5px 15px @hover-shadow, 0 0 0 1px @card-shadow;
     }
@@ -44,19 +44,5 @@
         transform: scale(0.5, 0.5);
       }
     }
-  }
-}
-
-@keyframes pulse {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
   }
 }

@@ -14,17 +14,20 @@ const Home = () =>
       <div className='container'>
         <Section title='Hi.'>
           <br />
-          <div className='content'>
+          <div className='content home-content'>
             <p>My name is Ryan.  I&rsquo;m a frontend developer, project manager and entrepreneur who helps startups create lovable apps.</p>
             <p>I&rsquo;m a passionate developer, coffee drinker and crazy dogs&rsquo; owner living in Riverside, California.</p>
-          </div>
-          <div className='section home__links'>
-            <NavLink to='/projects' className='button is-medium'>
-              My Projects
-            </NavLink>
-            <a href='https://github.com/rstegg' className='button is-medium'>
-              My Github
-            </a>
+            <div className='home-quicklinks'>
+              <h2>Quick Links</h2>
+              <div className='section home-quicklinks__group'>
+                <NavLink to='/projects' className='button is-medium'>
+                  My Projects
+                </NavLink>
+                <a href='https://github.com/rstegg' className='button is-medium'>
+                  My Github
+                </a>
+              </div>
+            </div>
           </div>
         </Section>
       </div>

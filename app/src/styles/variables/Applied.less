@@ -1,0 +1,58 @@
+// Invert colors
+@orange-invert: difference(@orange, @white);
+@yellow-invert: difference(@yellow, @white);
+@green-invert: difference(@green, @white);
+@turquoise-invert: difference(@turquoise, @white);
+@blue-invert: difference(@blue, @white);
+@purple-invert: difference(@purple, @white);
+@red-invert: difference(@red, @white);
+
+@primary-invert: @turquoise-invert;
+@info-invert: @blue-invert;
+@success-invert: @green-invert;
+@warning-invert: @yellow-invert;
+@danger-invert: @red-invert;
+@light-invert: @dark;
+@dark-invert: @light;
+
+// General colors
+@background: @white-ter;
+
+@border: @grey-lighter;
+@border-hover: @grey-light;
+
+// Text colors
+@text: @grey-dark;
+@text-invert: difference(@text, @white);
+@text-light: @grey;
+@text-strong: @grey-darker;
+
+// Code colors
+@code: @red;
+@code-background: @background;
+
+@pre: @text;
+@pre-background: @background;
+
+// Link colors
+@link: @primary;
+@link-invert: @primary-invert;
+@link-visited: @purple;
+
+@link-hover: @grey-darker;
+@link-hover-border: @grey-light;
+
+@link-focus: @grey-darker;
+@link-focus-border: @primary;
+
+@link-active: @grey-darker;
+@link-active-border: @grey-dark;
+
+// Typography
+@family-primary: @family-sans-serif;
+@family-code: @family-monospace;
+
+@size-small: @size-7;
+@size-normal: @size-6;
+@size-medium: @size-5;
+@size-large: @size-4;

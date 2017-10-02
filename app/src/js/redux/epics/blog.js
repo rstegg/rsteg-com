@@ -7,7 +7,13 @@ import {
   onUploadPostImageSuccess,
   onUploadEditPostImageSuccess
 } from 'actions/blog'
-import { Observable } from 'rxjs/Rx'
+
+import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/observable/from'
+import 'rxjs/add/operator/mergeMap'
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/catch'
+
 import { get, httpPost, imagePost, put } from './helpers/req'
 
 const api = {
@@ -30,7 +36,7 @@ const fetchPosts = action$ =>
     .mergeMap(() =>
       api.fetchPosts()
         .map(onFetchPostsSuccess)
-        .catch(error => Observable.of({
+        .catch(error => Observable.from({
           type: 'FETCH_POSTS_FAILURE',
           error
         }))
@@ -41,7 +47,7 @@ const fetchSinglePost = action$ =>
     .mergeMap(action =>
       api.fetchSinglePost(action.payload)
         .map(onFetchSinglePostSuccess)
-        .catch(error => Observable.of({
+        .catch(error => Observable.from({
           type: 'FETCH_SINGLE_POST_FAILURE',
           error
         }))
@@ -52,7 +58,7 @@ const createPost = action$ =>
     .mergeMap(action =>
       api.createPost(action.payload)
         .map(onCreatePostSuccess)
-        .catch(error => Observable.of({
+        .catch(error => Observable.from({
           type: 'CREATE_POST_FAILURE',
           error
         }))
@@ -63,7 +69,7 @@ const editPost = action$ =>
     .mergeMap(action =>
       api.editPost(action.payload)
         .map(onEditPostSuccess)
-        .catch(error => Observable.of({
+        .catch(error => Observable.from({
           type: 'EDIT_POST_FAILURE',
           error
         }))
@@ -74,7 +80,7 @@ const uploadPostImage = action$ =>
     .mergeMap(action =>
       api.uploadPostImage(action.payload)
         .map(onUploadPostImageSuccess)
-        .catch(error => Observable.of({
+        .catch(error => Observable.from({
           type: 'UPLOAD_POST_IMAGE_FAILURE',
           error
         }))
@@ -85,7 +91,7 @@ const uploadEditPostImage = action$ =>
     .mergeMap(action =>
       api.uploadEditPostImage(action.payload)
         .map(onUploadEditPostImageSuccess)
-        .catch(error => Observable.of({
+        .catch(error => Observable.from({
           type: 'UPLOAD_EDIT_POST_IMAGE_FAILURE',
           error
         }))
