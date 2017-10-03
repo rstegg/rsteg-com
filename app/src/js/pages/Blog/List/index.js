@@ -29,7 +29,7 @@ class Blog extends Component {
       return <BlogIntro />
     }
     return (
-      <ul>
+      <ul className='content blog-list'>
         {posts.map(post =>
           <PostRow
             to={`/blog/${post.slug}`}

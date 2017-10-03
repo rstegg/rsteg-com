@@ -11,18 +11,26 @@ const getPost = p => path([ 'body', 'post', p ])
 const getSlug = getPost('slug')
 const getSecret = getPost('secret')
 
+const sanitizeSlug = slug =>
+    slug
+      .replace("'", '')
+      .replace(/[^a-z0-9]/gi, '-')
+      .toLowerCase()
+      .trim()
+
 const authorize = req =>
   new Promise((res, rej) => getSecret(req) !== process.env.BLOG_ADMIN_SECRET ? rej('bad secret') : res(req))
 
 const validate = req =>
-  Post.findOne({
-    where: { slug: getSlug(req) }
-  })
-    .then(post =>
-      post ?
-        Promise.reject('slug exists')
-        : req.body.post
-    )
+  req.body.slug === 'new' ? Promise.reject('bad slug')
+  : Post.findOne({
+      where: { slug: getSlug(req) }
+    })
+      .then(post =>
+        post ?
+          Promise.reject('slug exists')
+          : req.body.post
+      )
 
 module.exports = (req, res) =>
   authorize(req)

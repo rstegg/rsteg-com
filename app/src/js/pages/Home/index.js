@@ -8,7 +8,7 @@ const Home = () =>
   <div className='home-container'>
     <Hero>
       <Hero.Title>Ryan Stegmann</Hero.Title>
-      <Hero.Subtitle>Test-driven, UX-focused project manager and entrepreneur.</Hero.Subtitle>
+      <Hero.Subtitle>Mobile & Web App developer, Javascript Junkie, & Functional Fanatic</Hero.Subtitle>
     </Hero>
     <div className='home'>
       <div className='container'>

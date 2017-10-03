@@ -73,10 +73,6 @@ if (process.env.npm_lifecycle_event === 'bundle:dev') {
         '/api/v1': {
           target: 'http://localhost:3030',
           secure: false
-        },
-        '/WSS': {
-          target: 'http://localhost:3030',
-          secure: false
         }
       }
     },

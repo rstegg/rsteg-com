@@ -69,8 +69,8 @@ class MDField extends Component {
     this.editorEl = wrapperEl.getElementsByClassName('CodeMirror')[0]
     this.editorToolbarEl = wrapperEl.getElementsByClassName('editor-toolbar')[0]
 
-    this.editorEl.addEventListener('keyup', this.eventWrapper)
-    this.editorToolbarEl && this.editorToolbarEl.addEventListener('click', this.eventWrapper)
+    this.editorEl.addEventListener('keyup', this.eventWrapper.bind(this))
+    this.editorToolbarEl && this.editorToolbarEl.addEventListener('click', this.eventWrapper.bind(this))
   }
 
   addExtraKeys() {
