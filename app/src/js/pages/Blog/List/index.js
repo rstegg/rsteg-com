@@ -35,7 +35,7 @@ class Blog extends Component {
             to={`/blog/${post.slug}`}
             title={post.title}
             image={post.image}
-            date={moment(post.createdAt).fromNow()}
+            date={moment(post.updatedAt).calendar()}
             preview={post.preview}
             key={post.slug}
           />
