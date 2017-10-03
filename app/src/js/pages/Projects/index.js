@@ -7,34 +7,25 @@ const ProjectsList = () =>
   <div className='projects'>
     <Card as={NavLink} to='/projects/luvpay' className='card projects-card'>
       <Card.Header>
-        <Card.Title>Luvpay</Card.Title>
+        <Card.Title>Luvpay - Collect Money with ease</Card.Title>
       </Card.Header>
       <Card.Content>
-        <Card.Description>
-          Collect Money with ease.
-        </Card.Description>
         <Card.Image src='/images/luvpay-preview.png' />
       </Card.Content>
     </Card>
     <Card as={NavLink} to='/projects/kuwau' className='card projects-card'>
       <Card.Header>
-        <Card.Title>Kuwau</Card.Title>
+        <Card.Title>Kuwau - E-commerce for designers</Card.Title>
       </Card.Header>
       <Card.Content>
-        <Card.Description>
-          E-commerce for designers.
-        </Card.Description>
         <Card.Image src='/images/kuwau-preview.png' />
       </Card.Content>
     </Card>
     <Card as={NavLink} to='/projects/cloudcashier' className='card projects-card'>
       <Card.Header>
-        <Card.Title>Cloud Cashier</Card.Title>
+        <Card.Title>Cloud Cashier - Bitcoin for retail</Card.Title>
       </Card.Header>
       <Card.Content>
-        <Card.Description>
-          Retail Bitcoin for mobile.
-        </Card.Description>
         <Card.Image src='/images/cloudcashier-preview.png' />
       </Card.Content>
     </Card>
