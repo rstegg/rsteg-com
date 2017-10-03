@@ -12,6 +12,9 @@ export const validate = values => {
   if (!values.keywords) {
     errors.keywords = 'Required'
   }
+  if (!values.secret) {
+    errors.secret = 'Required'
+  }
   if (!values.text) {
     errors.text = 'Required'
   }

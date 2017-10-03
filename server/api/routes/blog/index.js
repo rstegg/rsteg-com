@@ -25,7 +25,6 @@ module.exports =
       validateBody(validPost),
       createBlogPost
     )
-    .use(passport.authenticate('jwt', { session: false }))
     .put('/:id',
       validateBody(validPost),
       editBlogPost

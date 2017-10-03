@@ -7,7 +7,7 @@ import Hero from 'elements/Hero'
 
 import { fetchSinglePost } from 'actions/blog'
 
-class Blog extends Component {
+class Post extends Component {
   componentWillMount() {
     const { match: { params } } = this.props
     this.props.fetchSinglePost(params.slug)
@@ -46,4 +46,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Blog)
+)(Post)

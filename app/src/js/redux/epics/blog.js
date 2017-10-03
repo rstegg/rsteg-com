@@ -9,7 +9,7 @@ import {
 } from 'actions/blog'
 
 import { Observable } from 'rxjs/Observable'
-import 'rxjs/add/observable/from'
+import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/mergeMap'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
@@ -36,7 +36,7 @@ const fetchPosts = action$ =>
     .mergeMap(() =>
       api.fetchPosts()
         .map(onFetchPostsSuccess)
-        .catch(error => Observable.from({
+        .catch(error => Observable.of({
           type: 'FETCH_POSTS_FAILURE',
           error
         }))
@@ -47,7 +47,7 @@ const fetchSinglePost = action$ =>
     .mergeMap(action =>
       api.fetchSinglePost(action.payload)
         .map(onFetchSinglePostSuccess)
-        .catch(error => Observable.from({
+        .catch(error => Observable.of({
           type: 'FETCH_SINGLE_POST_FAILURE',
           error
         }))
@@ -58,7 +58,7 @@ const createPost = action$ =>
     .mergeMap(action =>
       api.createPost(action.payload)
         .map(onCreatePostSuccess)
-        .catch(error => Observable.from({
+        .catch(error => Observable.of({
           type: 'CREATE_POST_FAILURE',
           error
         }))
@@ -69,7 +69,7 @@ const editPost = action$ =>
     .mergeMap(action =>
       api.editPost(action.payload)
         .map(onEditPostSuccess)
-        .catch(error => Observable.from({
+        .catch(error => Observable.of({
           type: 'EDIT_POST_FAILURE',
           error
         }))
@@ -80,7 +80,7 @@ const uploadPostImage = action$ =>
     .mergeMap(action =>
       api.uploadPostImage(action.payload)
         .map(onUploadPostImageSuccess)
-        .catch(error => Observable.from({
+        .catch(error => Observable.of({
           type: 'UPLOAD_POST_IMAGE_FAILURE',
           error
         }))
@@ -91,7 +91,7 @@ const uploadEditPostImage = action$ =>
     .mergeMap(action =>
       api.uploadEditPostImage(action.payload)
         .map(onUploadEditPostImageSuccess)
-        .catch(error => Observable.from({
+        .catch(error => Observable.of({
           type: 'UPLOAD_EDIT_POST_IMAGE_FAILURE',
           error
         }))
