@@ -9,7 +9,7 @@ const Kuwau = () =>
     <div className='content'>
       <p>Kuwau.com</p>
       <p>Kuwau started with the idea of making an e-commerce platform for designers.</p>
-      <p>Kuwau is still a WIP, but alpha is released.</p>
+      <p>Kuwau is not currently in development, but the current iteration is released to public.</p>
       <p>Check it out at <a href='https://kuwau.com'>https://kuwau.com</a>!</p>
     </div>
   </div>
