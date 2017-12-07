@@ -5,16 +5,12 @@ import ProjectsLayout from 'layouts/Projects'
 import ProjectDetailsLayout from 'layouts/ProjectDetails'
 
 import ProjectsList from './'
-import Kuwau from './Kuwau'
-import Luvpay from './Luvpay'
-import Cloudcashier from './Cloudcashier'
+import Excite from './Excite'
 
 const ProjectDetailsRouter = () =>
   <ProjectDetailsLayout>
     <Switch>
-      <Route exact path='/projects/luvpay' component={Luvpay} />
-      <Route exact path='/projects/kuwau' component={Kuwau} />
-      <Route exact path='/projects/cloudcashier' component={Cloudcashier} />
+      <Route exact path='/projects/excite-riverside' component={Excite} />
     </Switch>
   </ProjectDetailsLayout>
 
